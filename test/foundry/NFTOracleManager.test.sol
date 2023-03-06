@@ -14,7 +14,6 @@ contract NFTOracleManagerTest is Test {
     address manager;
     address user;
 
-    address nft;
     address nftOracle;
 
     MockERC20 token;
@@ -29,10 +28,14 @@ contract NFTOracleManagerTest is Test {
         // init
         manager = mUsers.getNextUserAddress();
         user = mUsers.getNextUserAddress();
-        nft = mUsers.getNextUserAddress();
         owner = address(this);
 
-        nftOracleManager.setOracle(nft, nftOracle);
+        // set oracles
+        address[] memory oraclesToSet = new address[](1);
+        oraclesToSet[0] = nftOracle;
+        bool[] memory statusListToSet = new bool[](1);
+        statusListToSet[0] = true;
+        nftOracleManager.setOracles(oraclesToSet, statusListToSet);
     }
 
     function test_permision() public {
@@ -40,11 +43,6 @@ contract NFTOracleManagerTest is Test {
         vm.startPrank(manager);
         vm.expectRevert(abi.encodePacked('Ownable: caller is not the owner'));
         nftOracleManager.setManager(manager, true);
-
-        // setOracle
-        vm.expectRevert(abi.encodePacked('Ownable: caller is not the owner'));
-        nftOracleManager.setOracle(nft, nftOracle);
-        vm.stopPrank();
     }
 
     function test_canUpdatePrice(int256 price) public {
@@ -55,9 +53,10 @@ contract NFTOracleManagerTest is Test {
         int256 expectedMinPrice = (price * nftOracleManager.minChangeRate()) / 1000;
         int256 expectedMaxPrice = (price * nftOracleManager.maxChangeRate()) / 1000;
 
-        (int256 minPrice, int256 maxPrice, uint256 roundId) = nftOracleManager
-            .updateAvailablePriceRange(nftOracle);
+        (bool isSupport, int256 minPrice, int256 maxPrice, uint256 roundId) = nftOracleManager
+            .getUpdateAvailablePriceRange(nftOracle);
 
+        assertTrue(isSupport);
         assertEqUint(roundId, IOracle(nftOracle).latestRound() + 1);
         assertEqUint(uint(expectedMinPrice), uint(minPrice));
         assertEqUint(uint(expectedMaxPrice), uint(maxPrice));

@@ -47,15 +47,27 @@ export default {
   },
   namedAccounts: {
     deployer: 0,
-    team: 1, // @TODO replace with proper address
   },
   networks: {
     hardhat: {
       initialBaseFeePerGas: 0,
+      forking: {
+        url: process.env.MAINNET_PROVIDER_URL as string,
+      },
+    },
+    mainnet: {
+      url: process.env.MAINNET_PROVIDER_URL as string,
+      accounts: [process.env.PRIVATE_KEY],
     },
   },
   gasReporter: {
     currency: 'USD',
     gasPrice: 21,
+  },
+  etherscan: {
+    apiKey: {
+      mainnet: process.env.ETHERSCAN_API_KEY,
+    },
+    customChains: [],
   },
 } as HardhatUserConfig;

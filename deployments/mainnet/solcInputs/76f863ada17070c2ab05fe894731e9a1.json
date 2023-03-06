@@ -1,0 +1,44 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface AggregatorInterface {\n  function latestAnswer() external view returns (int256);\n\n  function latestTimestamp() external view returns (uint256);\n\n  function latestRound() external view returns (uint256);\n\n  function getAnswer(uint256 roundId) external view returns (int256);\n\n  function getTimestamp(uint256 roundId) external view returns (uint256);\n\n  event AnswerUpdated(int256 indexed current, uint256 indexed roundId, uint256 updatedAt);\n\n  event NewRound(uint256 indexed roundId, address indexed startedBy, uint256 startedAt);\n}\n"
+    },
+    "contracts/interfaces/INFTXInvetoryStaking.sol": {
+      "content": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface INFTXInvetoryStaking {\n    function xTokenShareValue(uint256 vaultId) external view returns (uint256);\n}\n"
+    },
+    "contracts/interfaces/IOracle.sol": {
+      "content": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport '@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol';\n\ninterface IOracle is AggregatorInterface {\n    function submit(uint256 roundId, int256 price) external;\n}\n"
+    },
+    "contracts/XTokenOracle.sol": {
+      "content": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport './interfaces/INFTXInvetoryStaking.sol';\nimport './interfaces/IOracle.sol';\n\ncontract XTokenOracle {\n    // address of NFTX vaultID\n    uint256 public immutable nftxVaultID;\n\n    // address of oracle contract\n    IOracle public immutable oracle;\n\n    // address of NFTX inventory staking\n    INFTXInvetoryStaking public immutable nftxInventoryStaking;\n\n    constructor(uint256 vaultId, IOracle oracleAddr, INFTXInvetoryStaking staking) {\n        nftxVaultID = vaultId;\n        oracle = oracleAddr;\n        nftxInventoryStaking = staking;\n    }\n\n    function latestAnswer() public view returns (int256 answer) {\n        uint256 shareVaule = nftxInventoryStaking.xTokenShareValue(nftxVaultID);\n        answer = (int256(shareVaule) * oracle.latestAnswer()) / 1e18;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
