@@ -12,8 +12,8 @@
 | --------------| ------------------------------------------ | --------------------------- |
 | xPunk         | 0x61fced286248AE0D682A502361119524e9EbbBdF | NFTX xTokenOracle           |
 | xPUNKWETH     | 0xfFD6cff65de27E7a93abEB0381e394e2bA4CA272 | NFTX staking Sushi LP Token |
-| xMeeBits      | 0x9b57CbE626c95e0Ffc7BCf5f68C800Ca08F67904 | NFTX xTokenOracle           |
-| xMEEBITSWETH  | 0xB4476Df5e59E857Bc7fad60A227Fc2b6E619faE8 | NFTX staking Sushi LP Token |
+| xMEEBIT       | 0x9b57CbE626c95e0Ffc7BCf5f68C800Ca08F67904 | NFTX xTokenOracle           |
+| xMEEBITWETH   | 0xB4476Df5e59E857Bc7fad60A227Fc2b6E619faE8 | NFTX staking Sushi LP Token |
 
 ### Pool TWO
 
