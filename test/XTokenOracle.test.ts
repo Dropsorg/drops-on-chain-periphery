@@ -51,7 +51,9 @@ describe('XTokenOracle', async () => {
 
       console.log(
         `${POOL_ONE[i].name} oracle price is: `,
-        (await XTokenOracle.latestAnswer()).toString(),
+        (await XTokenOracle.latestAnswer()).toString()
+      );
+      console.log(
         `${POOL_ONE[i].name} oracle decimals is: `,
         (await XTokenOracle.decimals()).toString()
       );
@@ -68,8 +70,10 @@ describe('XTokenOracle', async () => {
 
       console.log(
         `${POOL_TWO[i].name} oracle price is: `,
-        (await XTokenOracle.latestAnswer()).toString(),
-        `${POOL_ONE[i].name} oracle decimals is: `,
+        (await XTokenOracle.latestAnswer()).toString()
+      );
+      console.log(
+        `${POOL_TWO[i].name} oracle decimals is: `,
         (await XTokenOracle.decimals()).toString()
       );
     }
@@ -85,8 +89,10 @@ describe('XTokenOracle', async () => {
 
       console.log(
         `${POOL_THREE[i].name} oracle price is: `,
-        (await XTokenOracle.latestAnswer()).toString(),
-        `${POOL_ONE[i].name} oracle decimals is: `,
+        (await XTokenOracle.latestAnswer()).toString()
+      );
+      console.log(
+        `${POOL_THREE[i].name} oracle decimals is: `,
         (await XTokenOracle.decimals()).toString()
       );
     }

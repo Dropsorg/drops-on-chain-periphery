@@ -9,7 +9,7 @@ const deployXTokenOracle: DeployFunction = async function (hre: HardhatRuntimeEn
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const XTokenOracle = await deploy('XTokenOracle', {
+  await deploy('XTokenOracle', {
     from: deployer,
     args: [
       27, // vault ID
