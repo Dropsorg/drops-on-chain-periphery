@@ -6,7 +6,7 @@
 
 ## Oracles
 
-### Pool One
+### Pool 1 - Ocean
 
 | Contract      | Address                                    | Type                        |
 | --------------| ------------------------------------------ | --------------------------- |
@@ -15,7 +15,7 @@
 | xMEEBIT       | 0x9b57CbE626c95e0Ffc7BCf5f68C800Ca08F67904 | NFTX xTokenOracle           |
 | xMEEBITWETH   | 0xB4476Df5e59E857Bc7fad60A227Fc2b6E619faE8 | NFTX staking Sushi LP Token |
 
-### Pool TWO
+### Pool 2 - Lake
 
 | Contract     | Address                                    | Type                        |
 | ------------ | ------------------------------------------ | --------------------------- |
@@ -24,7 +24,7 @@
 | xWizard      | 0x2f4d4e38cf4abB25188363c9A2C54Ee6d6dfa22B | NFTX xTokenOracle           |
 | xWIZARDWETH  | 0xaA499023B75c5ed31E1Dd3852D214Ab44Cc4a55D | NFTX staking Sushi LP Token |
 
-### Pool THREE
+### Pool 4 - Artblocks
 
 | Contract  | Address                                    | Type                        |
 | --------- | ------------------------------------------ | --------------------------- |
