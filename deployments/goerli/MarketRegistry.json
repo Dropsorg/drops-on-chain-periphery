@@ -1,0 +1,412 @@
+{
+  "address": "0xCEc1A02D8a316c56aF3513998667a665CFb1777E",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "market",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum MarketRegistry.MarketType",
+          "name": "marketType",
+          "type": "uint8"
+        }
+      ],
+      "name": "MarketAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "market",
+          "type": "address"
+        }
+      ],
+      "name": "MarketRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "market",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum MarketRegistry.MarketType",
+          "name": "marketType",
+          "type": "uint8"
+        }
+      ],
+      "name": "MarketTypeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "market",
+          "type": "address"
+        },
+        {
+          "internalType": "enum MarketRegistry.MarketType",
+          "name": "marketType",
+          "type": "uint8"
+        }
+      ],
+      "name": "addMarket",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllMarkets",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "marketInfo",
+      "outputs": [
+        {
+          "internalType": "enum MarketRegistry.MarketType",
+          "name": "marketType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bool",
+          "name": "registered",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "arrayIndex",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "markets",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "market",
+          "type": "address"
+        }
+      ],
+      "name": "removeMarket",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "market",
+          "type": "address"
+        },
+        {
+          "internalType": "enum MarketRegistry.MarketType",
+          "name": "newMarketType",
+          "type": "uint8"
+        }
+      ],
+      "name": "updateMarketType",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x59ee0e6c6f8204296701db79542b751de85f30eeb8f441cfcfd21b9cc9630ee2",
+  "receipt": {
+    "to": null,
+    "from": "0x44606229010B350629289dAD1008CD7EB708B968",
+    "contractAddress": "0xCEc1A02D8a316c56aF3513998667a665CFb1777E",
+    "transactionIndex": 74,
+    "gasUsed": "1352186",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000020000000000000000000801000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000008000000000000000000000000000000000000100000000000020000000000000000000000000000020000000000040000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xabbb431db58a56d479f1d29e41883cd0a4047d92c809005e65d0d6130b34c530",
+    "transactionHash": "0x59ee0e6c6f8204296701db79542b751de85f30eeb8f441cfcfd21b9cc9630ee2",
+    "logs": [
+      {
+        "transactionIndex": 74,
+        "blockNumber": 8727205,
+        "transactionHash": "0x59ee0e6c6f8204296701db79542b751de85f30eeb8f441cfcfd21b9cc9630ee2",
+        "address": "0xCEc1A02D8a316c56aF3513998667a665CFb1777E",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x00000000000000000000000044606229010b350629289dad1008cd7eb708b968"
+        ],
+        "data": "0x",
+        "logIndex": 95,
+        "blockHash": "0xabbb431db58a56d479f1d29e41883cd0a4047d92c809005e65d0d6130b34c530"
+      }
+    ],
+    "blockNumber": 8727205,
+    "cumulativeGasUsed": "9106407",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "744abd89a36bf4dfa0106a0d52753d6c",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"market\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum MarketRegistry.MarketType\",\"name\":\"marketType\",\"type\":\"uint8\"}],\"name\":\"MarketAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"market\",\"type\":\"address\"}],\"name\":\"MarketRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"market\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enum MarketRegistry.MarketType\",\"name\":\"marketType\",\"type\":\"uint8\"}],\"name\":\"MarketTypeUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"market\",\"type\":\"address\"},{\"internalType\":\"enum MarketRegistry.MarketType\",\"name\":\"marketType\",\"type\":\"uint8\"}],\"name\":\"addMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllMarkets\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"marketInfo\",\"outputs\":[{\"internalType\":\"enum MarketRegistry.MarketType\",\"name\":\"marketType\",\"type\":\"uint8\"},{\"internalType\":\"bool\",\"name\":\"registered\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"arrayIndex\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"markets\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"market\",\"type\":\"address\"}],\"name\":\"removeMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"market\",\"type\":\"address\"},{\"internalType\":\"enum MarketRegistry.MarketType\",\"name\":\"newMarketType\",\"type\":\"uint8\"}],\"name\":\"updateMarketType\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addMarket(address,uint8)\":{\"params\":{\"market\":\"address of adding market\",\"marketType\":\"type of adding market\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"removeMarket(address)\":{\"params\":{\"market\":\"address of removing market\"}},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"updateMarketType(address,uint8)\":{\"params\":{\"market\":\"address of updating market\",\"newMarketType\":\"new type of updating market\"}}},\"version\":1},\"userdoc\":{\"events\":{\"MarketAdded(address,uint8)\":{\"notice\":\"emitted when new market is added\"},\"MarketRemoved(address)\":{\"notice\":\"emitted when market is removed\"},\"MarketTypeUpdated(address,uint8)\":{\"notice\":\"emitted when market type is being updated\"}},\"kind\":\"user\",\"methods\":{\"addMarket(address,uint8)\":{\"notice\":\"register new market\"},\"marketInfo(address)\":{\"notice\":\"market address => market info\"},\"markets(uint256)\":{\"notice\":\"array list of markets\"},\"removeMarket(address)\":{\"notice\":\"remove market\"},\"updateMarketType(address,uint8)\":{\"notice\":\"update market type\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/MarketRegistry.sol\":\"MarketRegistry\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * By default, the owner account will be the one that deploys the contract. This\\n * can later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the deployer as the initial owner.\\n     */\\n    constructor() {\\n        _transferOwnership(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        require(owner() == _msgSender(), \\\"Ownable: caller is not the owner\\\");\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions anymore. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby removing any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        require(newOwner != address(0), \\\"Ownable: new owner is the zero address\\\");\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\"},\"contracts/MarketRegistry.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport '@openzeppelin/contracts/access/Ownable.sol';\\n\\ncontract MarketRegistry is Ownable {\\n    enum MarketType {\\n        TOKEN_POOL,\\n        NFT_POOL,\\n        OTHER_POOL\\n    }\\n\\n    struct MarketInfo {\\n        MarketType marketType;\\n        bool registered;\\n        uint arrayIndex;\\n    }\\n\\n    /// @notice market address => market info\\n    mapping(address => MarketInfo) public marketInfo;\\n\\n    /// @notice array list of markets\\n    address[] public markets;\\n\\n    /// @notice emitted when new market is added\\n    event MarketAdded(address market, MarketType marketType);\\n\\n    /// @notice emitted when market is removed\\n    event MarketRemoved(address market);\\n\\n    /// @notice emitted when market type is being updated\\n    event MarketTypeUpdated(address market, MarketType marketType);\\n\\n    /// @notice register new market\\n    /// @param market address of adding market\\n    /// @param marketType type of adding market\\n    function addMarket(address market, MarketType marketType) external onlyOwner {\\n        require(market != address(0), 'addMarket: Invalid market address');\\n\\n        MarketInfo memory info = marketInfo[market];\\n        require(!info.registered, 'addMarket: Already Registered');\\n\\n        markets.push(market);\\n        marketInfo[market] = MarketInfo(marketType, true, markets.length - 1);\\n\\n        emit MarketAdded(market, marketType);\\n    }\\n\\n    function _moveTheLastElementToDeletedSpot(uint idx) internal {\\n        uint lastElementIdx = markets.length - 1;\\n        MarketInfo storage info = marketInfo[markets[lastElementIdx]];\\n\\n        if (idx < lastElementIdx) {\\n            // move the last element to the deleted spot\\n            markets[idx] = markets[markets.length - 1];\\n\\n            // update the idx for the last element's marketInfo\\n            info.arrayIndex = idx;\\n        }\\n\\n        markets.pop();\\n    }\\n\\n    /// @notice remove market\\n    /// @param market address of removing market\\n    function removeMarket(address market) external onlyOwner {\\n        require(market != address(0), 'removeMarket: Invalid market address');\\n\\n        MarketInfo storage info = marketInfo[market];\\n        require(info.registered, 'removeMarket: Not Registered');\\n\\n        delete markets[info.arrayIndex]; // remove market\\n        _moveTheLastElementToDeletedSpot(info.arrayIndex);\\n\\n        info.registered = false;\\n        info.arrayIndex = 0;\\n\\n        emit MarketRemoved(market);\\n    }\\n\\n    /// @notice update market type\\n    /// @param market address of updating market\\n    /// @param newMarketType new type of updating market\\n    function updateMarketType(address market, MarketType newMarketType) external onlyOwner {\\n        require(market != address(0), 'updateMarketType: Invalid market address');\\n\\n        MarketInfo storage info = marketInfo[market];\\n        require(info.registered, 'updateMarketType: Not Registered');\\n        require(info.marketType != newMarketType, 'updateMarketType: Not new type');\\n\\n        info.marketType = newMarketType;\\n        emit MarketTypeUpdated(market, newMarketType);\\n    }\\n\\n    function getAllMarkets() external view returns (address[] memory) {\\n        return markets;\\n    }\\n}\\n\",\"keccak256\":\"0xbc61e00958535f31c686cc1af63c359d6f152e0ac68af744159c263d7fbb8bb0\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061002d61002261003260201b60201c565b61003a60201b60201c565b6100fe565b600033905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b61172c8061010d6000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c8063b1283e7711610066578063b1283e77146100fa578063c43513861461012a578063c7693fc11461015c578063db91323614610178578063f2fde38b1461019457610093565b80634534b1d714610098578063715018a6146100b45780638da5cb5b146100be578063b0772d0b146100dc575b600080fd5b6100b260048036038101906100ad9190610f34565b6101b0565b005b6100bc610531565b005b6100c6610545565b6040516100d39190611195565b60405180910390f35b6100e461056e565b6040516100f191906111d9565b60405180910390f35b610114600480360381019061010f9190610f70565b6105fc565b6040516101219190611195565b60405180910390f35b610144600480360381019061013f9190610f0b565b61063b565b604051610153939291906111fb565b60405180910390f35b61017660048036038101906101719190610f34565b61067f565b005b610192600480360381019061018d9190610f0b565b6108df565b005b6101ae60048036038101906101a99190610f0b565b610ac5565b005b6101b8610b49565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415610228576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161021f90611252565b60405180910390fd5b6000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040518060600160405290816000820160009054906101000a900460ff1660028111156102bf577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b60028111156102f7577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81526020016000820160019054906101000a900460ff161515151581526020016001820154815250509050806020015115610367576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161035e90611292565b60405180910390fd5b6002839080600181540180825580915050600190039060005260206000200160009091909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604051806060016040528083600281111561040e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b8152602001600115158152602001600160028054905061042e919061139c565b815250600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548160ff021916908360028111156104c1577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b021790555060208201518160000160016101000a81548160ff021916908315150217905550604082015181600101559050507fe9e4ad7ec5b7c0add443d4cb41cbf2751232bf45d4e3d19511a9dd03539743cf83836040516105249291906111b0565b60405180910390a1505050565b610539610b49565b6105436000610bc7565b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b606060028054806020026020016040519081016040528092919081815260200182805480156105f257602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116105a8575b5050505050905090565b6002818154811061060c57600080fd5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090508060000160009054906101000a900460ff16908060000160019054906101000a900460ff16908060010154905083565b610687610b49565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156106f7576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016106ee90611332565b60405180910390fd5b6000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060000160019054906101000a900460ff1661078b576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610782906112d2565b60405180910390fd5b8160028111156107c4577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b8160000160009054906101000a900460ff16600281111561080e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b141561084f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610846906112f2565b60405180910390fd5b818160000160006101000a81548160ff0219169083600281111561089c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055507fa5e06a59d893f78a7db4d92ea66f955b3045d96bc2fc597739993ed4b2bd236d83836040516108d29291906111b0565b60405180910390a1505050565b6108e7610b49565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610957576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161094e90611312565b60405180910390fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060000160019054906101000a900460ff166109eb576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016109e2906112b2565b60405180910390fd5b6002816001015481548110610a29577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160006101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055610a638160010154610c8b565b60008160000160016101000a81548160ff021916908315150217905550600081600101819055507f59d7b1e52008dc342c9421dadfc773114b914a65682a4e4b53cf60a970df0d7782604051610ab99190611195565b60405180910390a15050565b610acd610b49565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610b3d576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b3490611232565b60405180910390fd5b610b4681610bc7565b50565b610b51610ec4565b73ffffffffffffffffffffffffffffffffffffffff16610b6f610545565b73ffffffffffffffffffffffffffffffffffffffff1614610bc5576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610bbc90611272565b60405180910390fd5b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b60006001600280549050610c9f919061139c565b905060006001600060028481548110610ce1577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020905081831015610e525760026001600280549050610d64919061139c565b81548110610d9b577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1660028481548110610e00577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508281600101819055505b6002805480610e8a577f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fd5b6001900381819060005260206000200160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690559055505050565b600033905090565b600081359050610edb816116b8565b92915050565b600081359050610ef0816116cf565b92915050565b600081359050610f05816116df565b92915050565b600060208284031215610f1d57600080fd5b6000610f2b84828501610ecc565b91505092915050565b60008060408385031215610f4757600080fd5b6000610f5585828601610ecc565b9250506020610f6685828601610ee1565b9150509250929050565b600060208284031215610f8257600080fd5b6000610f9084828501610ef6565b91505092915050565b6000610fa58383610fb1565b60208301905092915050565b610fba816113d0565b82525050565b610fc9816113d0565b82525050565b6000610fda82611362565b610fe4818561137a565b9350610fef83611352565b8060005b838110156110205781516110078882610f99565b97506110128361136d565b925050600181019050610ff3565b5085935050505092915050565b611036816113e2565b82525050565b6110458161142b565b82525050565b600061105860268361138b565b91506110638261149b565b604082019050919050565b600061107b60218361138b565b9150611086826114ea565b604082019050919050565b600061109e60208361138b565b91506110a982611539565b602082019050919050565b60006110c1601d8361138b565b91506110cc82611562565b602082019050919050565b60006110e4601c8361138b565b91506110ef8261158b565b602082019050919050565b600061110760208361138b565b9150611112826115b4565b602082019050919050565b600061112a601e8361138b565b9150611135826115dd565b602082019050919050565b600061114d60248361138b565b915061115882611606565b604082019050919050565b600061117060288361138b565b915061117b82611655565b604082019050919050565b61118f81611421565b82525050565b60006020820190506111aa6000830184610fc0565b92915050565b60006040820190506111c56000830185610fc0565b6111d2602083018461103c565b9392505050565b600060208201905081810360008301526111f38184610fcf565b905092915050565b6000606082019050611210600083018661103c565b61121d602083018561102d565b61122a6040830184611186565b949350505050565b6000602082019050818103600083015261124b8161104b565b9050919050565b6000602082019050818103600083015261126b8161106e565b9050919050565b6000602082019050818103600083015261128b81611091565b9050919050565b600060208201905081810360008301526112ab816110b4565b9050919050565b600060208201905081810360008301526112cb816110d7565b9050919050565b600060208201905081810360008301526112eb816110fa565b9050919050565b6000602082019050818103600083015261130b8161111d565b9050919050565b6000602082019050818103600083015261132b81611140565b9050919050565b6000602082019050818103600083015261134b81611163565b9050919050565b6000819050602082019050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b60006113a782611421565b91506113b283611421565b9250828210156113c5576113c461143d565b5b828203905092915050565b60006113db82611401565b9050919050565b60008115159050919050565b60008190506113fc826116a4565b919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b6000611436826113ee565b9050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b7f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008201527f6464726573730000000000000000000000000000000000000000000000000000602082015250565b7f6164644d61726b65743a20496e76616c6964206d61726b65742061646472657360008201527f7300000000000000000000000000000000000000000000000000000000000000602082015250565b7f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572600082015250565b7f6164644d61726b65743a20416c72656164792052656769737465726564000000600082015250565b7f72656d6f76654d61726b65743a204e6f74205265676973746572656400000000600082015250565b7f7570646174654d61726b6574547970653a204e6f742052656769737465726564600082015250565b7f7570646174654d61726b6574547970653a204e6f74206e657720747970650000600082015250565b7f72656d6f76654d61726b65743a20496e76616c6964206d61726b65742061646460008201527f7265737300000000000000000000000000000000000000000000000000000000602082015250565b7f7570646174654d61726b6574547970653a20496e76616c6964206d61726b657460008201527f2061646472657373000000000000000000000000000000000000000000000000602082015250565b600381106116b5576116b461146c565b5b50565b6116c1816113d0565b81146116cc57600080fd5b50565b600381106116dc57600080fd5b50565b6116e881611421565b81146116f357600080fd5b5056fea26469706673582212202d23ccc45d6ee0f225a216e87c5bbc7c6032f120794b1bc0475a7eba4488e8b664736f6c63430008040033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c8063b1283e7711610066578063b1283e77146100fa578063c43513861461012a578063c7693fc11461015c578063db91323614610178578063f2fde38b1461019457610093565b80634534b1d714610098578063715018a6146100b45780638da5cb5b146100be578063b0772d0b146100dc575b600080fd5b6100b260048036038101906100ad9190610f34565b6101b0565b005b6100bc610531565b005b6100c6610545565b6040516100d39190611195565b60405180910390f35b6100e461056e565b6040516100f191906111d9565b60405180910390f35b610114600480360381019061010f9190610f70565b6105fc565b6040516101219190611195565b60405180910390f35b610144600480360381019061013f9190610f0b565b61063b565b604051610153939291906111fb565b60405180910390f35b61017660048036038101906101719190610f34565b61067f565b005b610192600480360381019061018d9190610f0b565b6108df565b005b6101ae60048036038101906101a99190610f0b565b610ac5565b005b6101b8610b49565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415610228576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161021f90611252565b60405180910390fd5b6000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040518060600160405290816000820160009054906101000a900460ff1660028111156102bf577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b60028111156102f7577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81526020016000820160019054906101000a900460ff161515151581526020016001820154815250509050806020015115610367576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161035e90611292565b60405180910390fd5b6002839080600181540180825580915050600190039060005260206000200160009091909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604051806060016040528083600281111561040e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b8152602001600115158152602001600160028054905061042e919061139c565b815250600160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548160ff021916908360028111156104c1577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b021790555060208201518160000160016101000a81548160ff021916908315150217905550604082015181600101559050507fe9e4ad7ec5b7c0add443d4cb41cbf2751232bf45d4e3d19511a9dd03539743cf83836040516105249291906111b0565b60405180910390a1505050565b610539610b49565b6105436000610bc7565b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b606060028054806020026020016040519081016040528092919081815260200182805480156105f257602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116105a8575b5050505050905090565b6002818154811061060c57600080fd5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090508060000160009054906101000a900460ff16908060000160019054906101000a900460ff16908060010154905083565b610687610b49565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156106f7576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016106ee90611332565b60405180910390fd5b6000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060000160019054906101000a900460ff1661078b576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610782906112d2565b60405180910390fd5b8160028111156107c4577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b8160000160009054906101000a900460ff16600281111561080e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b141561084f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610846906112f2565b60405180910390fd5b818160000160006101000a81548160ff0219169083600281111561089c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055507fa5e06a59d893f78a7db4d92ea66f955b3045d96bc2fc597739993ed4b2bd236d83836040516108d29291906111b0565b60405180910390a1505050565b6108e7610b49565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610957576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161094e90611312565b60405180910390fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060000160019054906101000a900460ff166109eb576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016109e2906112b2565b60405180910390fd5b6002816001015481548110610a29577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160006101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055610a638160010154610c8b565b60008160000160016101000a81548160ff021916908315150217905550600081600101819055507f59d7b1e52008dc342c9421dadfc773114b914a65682a4e4b53cf60a970df0d7782604051610ab99190611195565b60405180910390a15050565b610acd610b49565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610b3d576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b3490611232565b60405180910390fd5b610b4681610bc7565b50565b610b51610ec4565b73ffffffffffffffffffffffffffffffffffffffff16610b6f610545565b73ffffffffffffffffffffffffffffffffffffffff1614610bc5576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610bbc90611272565b60405180910390fd5b565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b60006001600280549050610c9f919061139c565b905060006001600060028481548110610ce1577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020905081831015610e525760026001600280549050610d64919061139c565b81548110610d9b577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1660028481548110610e00577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b9060005260206000200160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508281600101819055505b6002805480610e8a577f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fd5b6001900381819060005260206000200160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690559055505050565b600033905090565b600081359050610edb816116b8565b92915050565b600081359050610ef0816116cf565b92915050565b600081359050610f05816116df565b92915050565b600060208284031215610f1d57600080fd5b6000610f2b84828501610ecc565b91505092915050565b60008060408385031215610f4757600080fd5b6000610f5585828601610ecc565b9250506020610f6685828601610ee1565b9150509250929050565b600060208284031215610f8257600080fd5b6000610f9084828501610ef6565b91505092915050565b6000610fa58383610fb1565b60208301905092915050565b610fba816113d0565b82525050565b610fc9816113d0565b82525050565b6000610fda82611362565b610fe4818561137a565b9350610fef83611352565b8060005b838110156110205781516110078882610f99565b97506110128361136d565b925050600181019050610ff3565b5085935050505092915050565b611036816113e2565b82525050565b6110458161142b565b82525050565b600061105860268361138b565b91506110638261149b565b604082019050919050565b600061107b60218361138b565b9150611086826114ea565b604082019050919050565b600061109e60208361138b565b91506110a982611539565b602082019050919050565b60006110c1601d8361138b565b91506110cc82611562565b602082019050919050565b60006110e4601c8361138b565b91506110ef8261158b565b602082019050919050565b600061110760208361138b565b9150611112826115b4565b602082019050919050565b600061112a601e8361138b565b9150611135826115dd565b602082019050919050565b600061114d60248361138b565b915061115882611606565b604082019050919050565b600061117060288361138b565b915061117b82611655565b604082019050919050565b61118f81611421565b82525050565b60006020820190506111aa6000830184610fc0565b92915050565b60006040820190506111c56000830185610fc0565b6111d2602083018461103c565b9392505050565b600060208201905081810360008301526111f38184610fcf565b905092915050565b6000606082019050611210600083018661103c565b61121d602083018561102d565b61122a6040830184611186565b949350505050565b6000602082019050818103600083015261124b8161104b565b9050919050565b6000602082019050818103600083015261126b8161106e565b9050919050565b6000602082019050818103600083015261128b81611091565b9050919050565b600060208201905081810360008301526112ab816110b4565b9050919050565b600060208201905081810360008301526112cb816110d7565b9050919050565b600060208201905081810360008301526112eb816110fa565b9050919050565b6000602082019050818103600083015261130b8161111d565b9050919050565b6000602082019050818103600083015261132b81611140565b9050919050565b6000602082019050818103600083015261134b81611163565b9050919050565b6000819050602082019050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b60006113a782611421565b91506113b283611421565b9250828210156113c5576113c461143d565b5b828203905092915050565b60006113db82611401565b9050919050565b60008115159050919050565b60008190506113fc826116a4565b919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b6000611436826113ee565b9050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b7f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008201527f6464726573730000000000000000000000000000000000000000000000000000602082015250565b7f6164644d61726b65743a20496e76616c6964206d61726b65742061646472657360008201527f7300000000000000000000000000000000000000000000000000000000000000602082015250565b7f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572600082015250565b7f6164644d61726b65743a20416c72656164792052656769737465726564000000600082015250565b7f72656d6f76654d61726b65743a204e6f74205265676973746572656400000000600082015250565b7f7570646174654d61726b6574547970653a204e6f742052656769737465726564600082015250565b7f7570646174654d61726b6574547970653a204e6f74206e657720747970650000600082015250565b7f72656d6f76654d61726b65743a20496e76616c6964206d61726b65742061646460008201527f7265737300000000000000000000000000000000000000000000000000000000602082015250565b7f7570646174654d61726b6574547970653a20496e76616c6964206d61726b657460008201527f2061646472657373000000000000000000000000000000000000000000000000602082015250565b600381106116b5576116b461146c565b5b50565b6116c1816113d0565b81146116cc57600080fd5b50565b600381106116dc57600080fd5b50565b6116e881611421565b81146116f357600080fd5b5056fea26469706673582212202d23ccc45d6ee0f225a216e87c5bbc7c6032f120794b1bc0475a7eba4488e8b664736f6c63430008040033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addMarket(address,uint8)": {
+        "params": {
+          "market": "address of adding market",
+          "marketType": "type of adding market"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "removeMarket(address)": {
+        "params": {
+          "market": "address of removing market"
+        }
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "updateMarketType(address,uint8)": {
+        "params": {
+          "market": "address of updating market",
+          "newMarketType": "new type of updating market"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "MarketAdded(address,uint8)": {
+        "notice": "emitted when new market is added"
+      },
+      "MarketRemoved(address)": {
+        "notice": "emitted when market is removed"
+      },
+      "MarketTypeUpdated(address,uint8)": {
+        "notice": "emitted when market type is being updated"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "addMarket(address,uint8)": {
+        "notice": "register new market"
+      },
+      "marketInfo(address)": {
+        "notice": "market address => market info"
+      },
+      "markets(uint256)": {
+        "notice": "array list of markets"
+      },
+      "removeMarket(address)": {
+        "notice": "remove market"
+      },
+      "updateMarketType(address,uint8)": {
+        "notice": "update market type"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 7,
+        "contract": "contracts/MarketRegistry.sol:MarketRegistry",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 157,
+        "contract": "contracts/MarketRegistry.sol:MarketRegistry",
+        "label": "marketInfo",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_struct(MarketInfo)151_storage)"
+      },
+      {
+        "astId": 161,
+        "contract": "contracts/MarketRegistry.sol:MarketRegistry",
+        "label": "markets",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_array(t_address)dyn_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_enum(MarketType)143": {
+        "encoding": "inplace",
+        "label": "enum MarketRegistry.MarketType",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(MarketInfo)151_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct MarketRegistry.MarketInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(MarketInfo)151_storage"
+      },
+      "t_struct(MarketInfo)151_storage": {
+        "encoding": "inplace",
+        "label": "struct MarketRegistry.MarketInfo",
+        "members": [
+          {
+            "astId": 146,
+            "contract": "contracts/MarketRegistry.sol:MarketRegistry",
+            "label": "marketType",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_enum(MarketType)143"
+          },
+          {
+            "astId": 148,
+            "contract": "contracts/MarketRegistry.sol:MarketRegistry",
+            "label": "registered",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool"
+          },
+          {
+            "astId": 150,
+            "contract": "contracts/MarketRegistry.sol:MarketRegistry",
+            "label": "arrayIndex",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

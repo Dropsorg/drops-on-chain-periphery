@@ -59,6 +59,10 @@ export default {
       url: process.env.MAINNET_PROVIDER_URL as string,
       accounts: [process.env.PRIVATE_KEY],
     },
+    goerli: {
+      url: process.env.GOERLI_PROVIDER_URI as string,
+      accounts: [process.env.PRIVATE_KEY],
+    },
   },
   gasReporter: {
     currency: 'USD',
@@ -67,6 +71,7 @@ export default {
   etherscan: {
     apiKey: {
       mainnet: process.env.ETHERSCAN_API_KEY,
+      goerli: process.env.ETHERSCAN_API_KEY,
     },
     customChains: [],
   },
