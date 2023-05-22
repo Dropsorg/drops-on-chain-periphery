@@ -4,8 +4,8 @@ pragma solidity ^0.8.0;
 import '@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol';
 
 import '../../lib/PRBMath.sol';
-import '../../interfaces/IUniswapV2Pair.sol';
-import '../../interfaces/oracle/IOracle.sol';
+import '../interfaces/IUniswapV2Pair.sol';
+import '../interfaces/IOracle.sol';
 
 /**
  * @title Price Aggreatofr for uniswap V2 LP tokens
