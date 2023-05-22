@@ -1,4 +1,4 @@
-import { UniV2LPPriceOracle } from '../types';
+import { UniV2LPPriceAggregator } from '../types';
 import { deployContract } from '../helpers/contract';
 
 const POOL_ONE = [
@@ -40,61 +40,58 @@ const POOL_THREE = [
   },
 ];
 
-describe('UniV2LPPriceOracle', async () => {
+describe('UniV2LPPriceAggregator', async () => {
   it('POOL_ONE', async () => {
     for (let i = 0; i < POOL_ONE.length; i++) {
-      const UniV2LPPriceOracle = await deployContract<UniV2LPPriceOracle>('UniV2LPPriceOracle', [
-        POOL_ONE[i].pair,
-        POOL_ONE[i].token,
-        POOL_ONE[i].oracle,
-      ]);
+      const UniV2LPPriceAggregator = await deployContract<UniV2LPPriceAggregator>(
+        'UniV2LPPriceAggregator',
+        [POOL_ONE[i].pair, POOL_ONE[i].token, POOL_ONE[i].oracle]
+      );
 
       console.log(
         `${POOL_ONE[i].name} oracle price is: `,
-        (await UniV2LPPriceOracle.latestAnswer()).toString()
+        (await UniV2LPPriceAggregator.latestAnswer()).toString()
       );
 
       console.log(
         `${POOL_ONE[i].name} oracle decimals is: `,
-        (await UniV2LPPriceOracle.decimals()).toString()
+        (await UniV2LPPriceAggregator.decimals()).toString()
       );
     }
   });
 
   it('POOL_TWO', async () => {
     for (let i = 0; i < POOL_TWO.length; i++) {
-      const UniV2LPPriceOracle = await deployContract<UniV2LPPriceOracle>('UniV2LPPriceOracle', [
-        POOL_TWO[i].pair,
-        POOL_TWO[i].token,
-        POOL_TWO[i].oracle,
-      ]);
+      const UniV2LPPriceAggregator = await deployContract<UniV2LPPriceAggregator>(
+        'UniV2LPPriceAggregator',
+        [POOL_TWO[i].pair, POOL_TWO[i].token, POOL_TWO[i].oracle]
+      );
 
       console.log(
         `${POOL_TWO[i].name} oracle price is: `,
-        (await UniV2LPPriceOracle.latestAnswer()).toString()
+        (await UniV2LPPriceAggregator.latestAnswer()).toString()
       );
       console.log(
         `${POOL_TWO[i].name} oracle decimals is: `,
-        (await UniV2LPPriceOracle.decimals()).toString()
+        (await UniV2LPPriceAggregator.decimals()).toString()
       );
     }
   });
 
   it('POOL_THREE', async () => {
     for (let i = 0; i < POOL_THREE.length; i++) {
-      const UniV2LPPriceOracle = await deployContract<UniV2LPPriceOracle>('UniV2LPPriceOracle', [
-        POOL_THREE[i].pair,
-        POOL_THREE[i].token,
-        POOL_THREE[i].oracle,
-      ]);
+      const UniV2LPPriceAggregator = await deployContract<UniV2LPPriceAggregator>(
+        'UniV2LPPriceAggregator',
+        [POOL_THREE[i].pair, POOL_THREE[i].token, POOL_THREE[i].oracle]
+      );
 
       console.log(
         `${POOL_THREE[i].name} oracle price is: `,
-        (await UniV2LPPriceOracle.latestAnswer()).toString()
+        (await UniV2LPPriceAggregator.latestAnswer()).toString()
       );
       console.log(
         `${POOL_THREE[i].name} oracle decimals is: `,
-        (await UniV2LPPriceOracle.decimals()).toString()
+        (await UniV2LPPriceAggregator.decimals()).toString()
       );
     }
   });

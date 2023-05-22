@@ -1,8 +1,12 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import './interfaces/IOracle.sol';
-import './Withdrawable.sol';
+import '../interfaces/oracle/IOracle.sol';
+import '../Withdrawable.sol';
+
+/**
+ * @title Price Aggreatofr for uniswap V2 LP tokens
+ */
 
 contract NFTOracleManager is Withdrawable {
     /// @notice chainlink aggregator oracle contract => support?

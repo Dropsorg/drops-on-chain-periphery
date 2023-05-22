@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/0-deploy-UniV2LPPriceOracle.ts
+// deploy/0-deploy-UniV2LPPriceAggregator.ts
 const deployUniV2LPPriceOracle: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
     deployments: { deploy },
@@ -9,7 +9,7 @@ const deployUniV2LPPriceOracle: DeployFunction = async function (hre: HardhatRun
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  await deploy('UniV2LPPriceOracle', {
+  await deploy('UniV2LPPriceAggregator', {
     from: deployer,
     args: [
       '0x698AbbBC986C59D02941E18BC96fe2396493339B', // pair
@@ -21,4 +21,4 @@ const deployUniV2LPPriceOracle: DeployFunction = async function (hre: HardhatRun
 };
 
 export default deployUniV2LPPriceOracle;
-deployUniV2LPPriceOracle.tags = ['UniV2LPPriceOracle'];
+deployUniV2LPPriceOracle.tags = ['UniV2LPPriceAggregator'];

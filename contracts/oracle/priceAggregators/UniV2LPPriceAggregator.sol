@@ -2,11 +2,15 @@
 pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol';
-import './math/PRBMath.sol';
-import './interfaces/IUniswapV2Pair.sol';
-import './interfaces/IOracle.sol';
 
-contract UniV2LPPriceOracle {
+import '../../lib/PRBMath.sol';
+import '../../interfaces/IUniswapV2Pair.sol';
+import '../../interfaces/oracle/IOracle.sol';
+
+/**
+ * @title Price Aggreatofr for uniswap V2 LP tokens
+ */
+contract UniV2LPPriceAggregator {
     /// @notice WETH address
     address constant WETH = address(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
 

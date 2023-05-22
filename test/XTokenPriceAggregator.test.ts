@@ -1,4 +1,4 @@
-import { XTokenOracle } from '../types';
+import { XTokenPriceAggregator } from '../types';
 import { deployContract } from '../helpers/contract';
 
 const POOL_ONE = [
@@ -40,60 +40,57 @@ const POOL_THREE = [
   },
 ];
 
-describe('XTokenOracle', async () => {
+describe('XTokenPriceAggregator', async () => {
   it('POOL_ONE', async () => {
     for (let i = 0; i < POOL_ONE.length; i++) {
-      const XTokenOracle = await deployContract<XTokenOracle>('XTokenOracle', [
-        POOL_ONE[i].vaultId,
-        POOL_ONE[i].oracle,
-        POOL_ONE[i].inventoryStaking,
-      ]);
+      const XTokenPriceAggregator = await deployContract<XTokenPriceAggregator>(
+        'XTokenPriceAggregator',
+        [POOL_ONE[i].vaultId, POOL_ONE[i].oracle, POOL_ONE[i].inventoryStaking]
+      );
 
       console.log(
         `${POOL_ONE[i].name} oracle price is: `,
-        (await XTokenOracle.latestAnswer()).toString()
+        (await XTokenPriceAggregator.latestAnswer()).toString()
       );
       console.log(
         `${POOL_ONE[i].name} oracle decimals is: `,
-        (await XTokenOracle.decimals()).toString()
+        (await XTokenPriceAggregator.decimals()).toString()
       );
     }
   });
 
   it('POOL_TWO', async () => {
     for (let i = 0; i < POOL_TWO.length; i++) {
-      const XTokenOracle = await deployContract<XTokenOracle>('XTokenOracle', [
-        POOL_TWO[i].vaultId,
-        POOL_TWO[i].oracle,
-        POOL_TWO[i].inventoryStaking,
-      ]);
+      const XTokenPriceAggregator = await deployContract<XTokenPriceAggregator>(
+        'XTokenPriceAggregator',
+        [POOL_TWO[i].vaultId, POOL_TWO[i].oracle, POOL_TWO[i].inventoryStaking]
+      );
 
       console.log(
         `${POOL_TWO[i].name} oracle price is: `,
-        (await XTokenOracle.latestAnswer()).toString()
+        (await XTokenPriceAggregator.latestAnswer()).toString()
       );
       console.log(
         `${POOL_TWO[i].name} oracle decimals is: `,
-        (await XTokenOracle.decimals()).toString()
+        (await XTokenPriceAggregator.decimals()).toString()
       );
     }
   });
 
   it('POOL_THREE', async () => {
     for (let i = 0; i < POOL_THREE.length; i++) {
-      const XTokenOracle = await deployContract<XTokenOracle>('XTokenOracle', [
-        POOL_THREE[i].vaultId,
-        POOL_THREE[i].oracle,
-        POOL_THREE[i].inventoryStaking,
-      ]);
+      const XTokenPriceAggregator = await deployContract<XTokenPriceAggregator>(
+        'XTokenPriceAggregator',
+        [POOL_THREE[i].vaultId, POOL_THREE[i].oracle, POOL_THREE[i].inventoryStaking]
+      );
 
       console.log(
         `${POOL_THREE[i].name} oracle price is: `,
-        (await XTokenOracle.latestAnswer()).toString()
+        (await XTokenPriceAggregator.latestAnswer()).toString()
       );
       console.log(
         `${POOL_THREE[i].name} oracle decimals is: `,
-        (await XTokenOracle.decimals()).toString()
+        (await XTokenPriceAggregator.decimals()).toString()
       );
     }
   });
