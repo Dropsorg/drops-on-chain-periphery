@@ -1,10 +1,16 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import './interfaces/INFTXInvetoryStaking.sol';
-import './interfaces/IOracle.sol';
+import '../../interfaces/oracle/IOracle.sol';
 
-contract XTokenOracle {
+interface INFTXInvetoryStaking {
+    function xTokenShareValue(uint256 vaultId) external view returns (uint256);
+}
+
+/**
+ * @title Price Aggreatofr for xToken of NFTX
+ */
+contract XTokenPriceAggregator {
     /// @notice address of NFTX vaultID
     uint256 public immutable nftxVaultID;
 
