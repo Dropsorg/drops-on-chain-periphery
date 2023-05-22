@@ -3,6 +3,9 @@ pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/access/Ownable.sol';
 
+/**
+ * @title contract for managing markets that protocol supports
+ */
 contract MarketRegistry is Ownable {
     enum MarketType {
         TOKEN_POOL,
