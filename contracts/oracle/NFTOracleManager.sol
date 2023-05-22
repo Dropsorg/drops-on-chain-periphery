@@ -5,7 +5,7 @@ import '../interfaces/oracle/IOracle.sol';
 import '../Withdrawable.sol';
 
 /**
- * @title Price Aggreatofr for uniswap V2 LP tokens
+ * @title contract for managing NFT oracles that protocol supports
  */
 
 contract NFTOracleManager is Withdrawable {
