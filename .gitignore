@@ -17,3 +17,5 @@ coverage.json
 **/.DS_Store
 
 .env
+
+yarn.lock
