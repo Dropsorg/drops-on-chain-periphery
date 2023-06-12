@@ -2,8 +2,8 @@
 pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-import './interfaces/IDropsCompoundingVault.sol';
-import './interfaces/IAuraBaseRewardPool.sol';
+import '../interfaces/drops/IDropsCompoundingVault.sol';
+import '../interfaces/aura/IAuraBaseRewardPool.sol';
 
 contract AuraLPMigration {
     IAuraBaseRewardPool public immutable aura;
@@ -17,7 +17,7 @@ contract AuraLPMigration {
     }
 
     /// @notice user should approve this contract to withdraw their LP from Aura
-    /// @param amount: of balancer LP tokens to withdraw from Aura     
+    /// @param amount: of balancer LP tokens to withdraw from Aura
     function migrate(uint256 amount) external returns (uint256 shares) {
         require(aura.allowance(msg.sender, address(this)) >= amount, '!allowance');
 

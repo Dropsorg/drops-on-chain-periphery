@@ -2,10 +2,9 @@
 pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol';
-
 import '../../lib/PRBMath.sol';
-import '../interfaces/IUniswapV2Pair.sol';
-import '../interfaces/IOracle.sol';
+import '../../interfaces/uniswap/IUniswapV2Pair.sol';
+import '../../interfaces/drops/IDropsOracle.sol';
 
 /**
  * @title Price Aggreatofr for uniswap V2 LP tokens
@@ -21,9 +20,9 @@ contract UniV2LPPriceAggregator {
     address public immutable token;
 
     /// @notice address of oracle for token ETH price
-    IOracle public immutable tokenOracle;
+    IDropsOracle public immutable tokenOracle;
 
-    constructor(IUniswapV2Pair pairAddr, address tokenAddr, IOracle tokenOracleAddr) {
+    constructor(IUniswapV2Pair pairAddr, address tokenAddr, IDropsOracle tokenOracleAddr) {
         pair = pairAddr;
         token = tokenAddr;
         tokenOracle = tokenOracleAddr;

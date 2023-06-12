@@ -1,14 +1,25 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import './interfaces/IOracle.sol';
-import '../Withdrawable.sol';
+import '@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol';
+import '@openzeppelin/contracts/access/Ownable.sol';
+import '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
+import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
+
+interface IOracle is AggregatorInterface {
+    function submit(uint256 roundId, int256 price) external;
+
+    function decimals() external view returns (uint8);
+}
 
 /**
  * @title contract for managing NFT oracles that protocol supports
  */
+contract NFTOracleManager is Ownable {
+    using SafeERC20 for IERC20;
 
-contract NFTOracleManager is Withdrawable {
+    address constant ETHER = address(0);
+
     /// @notice chainlink aggregator oracle contract => support?
     mapping(address => bool) public supportOracles;
 
@@ -30,6 +41,9 @@ contract NFTOracleManager is Withdrawable {
 
     /// @notice emitted when prices are submitted
     event PricesSubmitted(address[] oracleList, int256[] prices, uint timestamp);
+
+    /// @notice emitted when withdraw happens
+    event LogWithdraw(address indexed from, address indexed asset, uint amount);
 
     constructor() {
         minChangeRate = 300; // 30%
@@ -99,5 +113,19 @@ contract NFTOracleManager is Withdrawable {
         }
 
         emit PricesSubmitted(oracles, prices, block.timestamp);
+    }
+
+    /// @notice withdraw assets from the contract
+    function withdraw(address asset, address receiver) public onlyOwner {
+        uint assetBalance;
+        if (asset == ETHER) {
+            address self = address(this); // workaround for a possible solidity bug
+            assetBalance = self.balance;
+            payable(receiver).transfer(assetBalance);
+        } else {
+            assetBalance = IERC20(asset).balanceOf(address(this));
+            IERC20(asset).safeTransfer(receiver, assetBalance);
+        }
+        emit LogWithdraw(receiver, asset, assetBalance);
     }
 }

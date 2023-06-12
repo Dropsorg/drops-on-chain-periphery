@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import 'forge-std/Test.sol';
 import 'forge-std/console.sol';
 
-import '../../contracts/NFTOracleManager.sol';
+import '../../contracts/oracle/NFTOracleManager.sol';
 import './Utils.sol';
 
 contract NFTOracleManagerTest is Test {
