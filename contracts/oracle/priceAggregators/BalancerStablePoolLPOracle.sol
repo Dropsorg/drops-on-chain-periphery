@@ -12,11 +12,22 @@ import '../../lib/BalancerLib.sol';
  * @title BalancerStablePool LP token price oracle
  */
 contract BalancerStablePoolLPOracle is IDropsOracle {
-    address public factory;
+    /// @notice address to the price factory
+    address public immutable factory;
+
+    /// @notice balancer pool
+    IBalancerPool public immutable pool;
+
+    /// @notice balancer vault
     IBalancerV2Vault public vault;
-    IBalancerPool public pool;
+
+    /// @notice balancer pool ID
     bytes32 public poolId;
+
+    /// @notice balancer pool tokens
     address[] public tokens;
+
+    /// @notice balancer pool token decimals
     uint8[] public tokenDecimals;
 
     constructor(address _factory, IBalancerPool _pool) {
