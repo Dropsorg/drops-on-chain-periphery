@@ -3,16 +3,22 @@ pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol';
 import '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';
-import '@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol';
 import '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
+import '@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol';
+import '@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol';
 
 import '../interfaces/drops/IDropsCompoundingVault.sol';
-import '../interfaces/drops/IAuraMarket.sol';
+import '../interfaces/drops/IDropsAuraMarket.sol';
 import '../interfaces/aura/IAuraRewardPool.sol';
 
 /** @title AuraLPMigration: get balanceLP from Aura and supply
  */
-contract AuraLPMigration is Initializable, ReentrancyGuardUpgradeable, OwnableUpgradeable {
+contract AuraLPMigration is
+    Initializable,
+    ReentrancyGuardUpgradeable,
+    OwnableUpgradeable,
+    PausableUpgradeable
+{
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
     /// @notice aura base reward pool
@@ -22,16 +28,23 @@ contract AuraLPMigration is Initializable, ReentrancyGuardUpgradeable, OwnableUp
     IDropsCompoundingVault public compoundingVault;
 
     /// @notice drops CToken for aura market
-    IAuraMarket public dropsAuraMarket;
+    IDropsAuraMarket public dropsAuraMarket;
 
     /// @notice balancer LP token
     IERC20Upgradeable public balancerLP;
 
+    /// @notice emitted when withdraw happens
+    event LogEmergencyWithdraw(address indexed from, address indexed asset, uint256 amount);
+
     function initialize(
         IAuraRewardPool _auraRewardPool,
         IDropsCompoundingVault _compoundingVault,
-        IAuraMarket _dropsAuraMarket
+        IDropsAuraMarket _dropsAuraMarket
     ) public payable initializer {
+        __Ownable_init();
+        __ReentrancyGuard_init();
+        __Pausable_init();
+
         require(
             _auraRewardPool.asset() == address(_compoundingVault.want()),
             'aura asset are not same with compoundingVault want'
@@ -43,9 +56,13 @@ contract AuraLPMigration is Initializable, ReentrancyGuardUpgradeable, OwnableUp
         balancerLP = IERC20Upgradeable(_auraRewardPool.asset());
     }
 
-    /// @notice user should approve this contract to withdraw their LP from Aura
-    /// @param amount of balancer LP tokens to withdraw from Aura
-    function supplyToMarket(uint256 amount) external nonReentrant returns (uint256 shares) {
+    /// @notice withdraw LP tokens from Aura and supply to market
+    /// @dev caller should approve this contract before calling.
+    ///      also enables supplied assets as collateral in the market
+    /// @param amount of Aura pool tokens to withdraw
+    function supplyToMarket(
+        uint256 amount
+    ) external nonReentrant whenNotPaused returns (uint256 shares) {
         address user = msg.sender;
 
         require(auraRewardPool.allowance(user, address(this)) >= amount, '!allowance');
@@ -63,7 +80,7 @@ contract AuraLPMigration is Initializable, ReentrancyGuardUpgradeable, OwnableUp
         require(err != 0, '!mint');
 
         // enable as collateral
-        ComptrollerInterface comptroller = dropsAuraMarket.comptroller();
+        IDropsAuraComptroller comptroller = dropsAuraMarket.comptroller();
         address[] memory markets = new address[](1);
         markets[0] = address(dropsAuraMarket);
         comptroller.enterMarketsFrom(markets, user);
@@ -72,7 +89,11 @@ contract AuraLPMigration is Initializable, ReentrancyGuardUpgradeable, OwnableUp
     /// @notice market will call this function to withdraw balancer LP or restake to Aura
     /// the market should send vault erc20 tokens before call this function
     /// @param withdrawType 1 for withdraw balancer LP, 2 for restake
-    function withdraw(address reciver, uint256 amount, uint256 withdrawType) external nonReentrant {
+    function redeem(
+        address reciver,
+        uint256 amount,
+        uint256 withdrawType
+    ) external whenNotPaused nonReentrant {
         require(msg.sender == address(dropsAuraMarket), '!market');
         require(withdrawType == 1 || withdrawType == 2, '!withdrawType');
         require(
@@ -89,6 +110,31 @@ contract AuraLPMigration is Initializable, ReentrancyGuardUpgradeable, OwnableUp
         } else {
             balancerLP.approve(address(auraRewardPool), withdrawBalance);
             auraRewardPool.stakeFor(reciver, withdrawBalance);
+        }
+    }
+
+    /* ========== owner level functions ========== */
+
+    function pause() external whenNotPaused onlyOwner {
+        _pause();
+    }
+
+    function unpause() external whenPaused onlyOwner {
+        _unpause();
+    }
+
+    function emergencyWithdraw(address asset, address receiver) external onlyOwner {
+        uint256 assetBalance;
+        if (asset == address(0)) {
+            // ether
+            assetBalance = (address(this)).balance;
+            payable(receiver).transfer(assetBalance);
+        } else {
+            assetBalance = IERC20Upgradeable(asset).balanceOf(address(this));
+            IERC20Upgradeable(asset).safeTransfer(receiver, assetBalance);
+        }
+        if (assetBalance > 0) {
+            emit LogEmergencyWithdraw(receiver, asset, assetBalance);
         }
     }
 }
