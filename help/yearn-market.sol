@@ -49,7 +49,7 @@ contract CToken {
     }
 
     /** redeemType == 0 (in yvTokens like yvUSDC)
-     *  redeemType == 1 (in toknes like USDC)
+     *  redeemType == 1 (in tokens like USDC)
      */
     function redeemFresh(
         address payable redeemer,
