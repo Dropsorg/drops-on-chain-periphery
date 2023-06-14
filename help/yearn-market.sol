@@ -27,7 +27,7 @@ contract CERC20 is CToken {
     }
 
     function borrowUnderlying(uint borrowAmount) external override returns (uint) {
-        return borrowInternal(borrowAmount, true);
+        return borrowInternal(borrowAmount, 1);
     }
 }
 
