@@ -1,8 +1,8 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/4-deploy-ChainlinkPriceFactory.ts
-const deployChainlinkPriceFactory: DeployFunction = async function (
+// deploy/10-deploy-WstETHWETHBalancerLPOracle.ts
+const deployWstETHWETHBalancerLPOracle: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {
   const {
@@ -11,12 +11,12 @@ const deployChainlinkPriceFactory: DeployFunction = async function (
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  await deploy('ChainlinkPriceFactory', {
+  await deploy('WstETHWETHBalancerLPOracle', {
     from: deployer,
     args: [],
     log: true,
   });
 };
 
-export default deployChainlinkPriceFactory;
-deployChainlinkPriceFactory.tags = ['ChainlinkPriceFactory'];
+export default deployWstETHWETHBalancerLPOracle;
+deployWstETHWETHBalancerLPOracle.tags = ['WstETHWETHBalancerLPOracle'];

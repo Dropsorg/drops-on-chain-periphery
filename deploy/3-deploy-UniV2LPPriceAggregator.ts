@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/0-deploy-UniV2LPPriceAggregator.ts
+// deploy/3-deploy-UniV2LPPriceAggregator.ts
 const deployUniV2LPPriceOracle: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
     deployments: { deploy },

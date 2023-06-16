@@ -57,8 +57,8 @@ contract BalancerStablePoolLPOracle is IDropsOracle {
 
     /* ========== INTERNAL ========== */
 
-    function _getTokenPriceInETH(address token) internal view returns (uint256) {
-        return uint256(IChainlinkPriceFactory(factory).getETHPrice(token));
+    function _getTokenPriceInETH(address token) internal view returns (uint256 price) {
+        price = uint256(IChainlinkPriceFactory(factory).getETHPrice(token));
     }
 
     function _getETHBalances() internal view returns (uint256[] memory ethBalances) {
