@@ -1,8 +1,9 @@
 # OnChain Oracles
 
-## ERC20 Oracles
+## Manager Contracts
 
 - ChainlinkPriceFactory: 0xB08742E82cC6743D8a1Cf2473aD36c9Ea9D477fD
+- NFTOracleManager: 0x88Ec9a439235f306a50A45f1C6114B4052DB9DC8
 
 ### Aura Markets
 
@@ -19,10 +20,6 @@
 | yvUSDT Oracle | 0xD3fe619bc2F1ebE86b139878E234F21E66768edD |
 | yvDAI Oracle  | 0xC089a0fa21EA30B9dF711a0cd3a23B072799F8dB |
 | yvWETH Oracle | 0x233C6CC7F12c47cc04e902E5E9b849B48BB233df |
-
-## NFT Oracles
-
-- NFTOracleManager: 0x88Ec9a439235f306a50A45f1C6114B4052DB9DC8
 
 ### Pool 1 - Ocean
 
