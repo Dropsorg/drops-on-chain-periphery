@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/0-deploy-XTokenPriceAggregator.ts
+// deploy/2-deploy-XTokenPriceAggregator.ts
 const deployXTokenPriceAggregator: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {

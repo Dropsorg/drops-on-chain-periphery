@@ -8,6 +8,7 @@ import '@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.
 import '@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol';
 
 import '../interfaces/drops/IDropsYearnMarket.sol';
+import '../interfaces/yearn/IYearnVault.sol';
 
 contract YVTokenMigration is
     Initializable,
@@ -39,7 +40,7 @@ contract YVTokenMigration is
 
         yVault = _yVault;
         dropsYearnMarket = _dropsYearnMarket;
-        token = yVault.token();
+        token = IERC20Upgradeable(yVault.token());
     }
 
     function _depositIntoYearn(
@@ -52,36 +53,39 @@ contract YVTokenMigration is
 
         // deposit tokens into yVault
         yvTokesAmount = yVault.deposit(amount, address(this));
+        require(yVault.balanceOf(address(this)) >= yvTokesAmount, '!deposit');
     }
 
     /// @notice supply yvTokens into market
     /// @dev callter should approve this contract before calling.
     ///      deposit tokens into yearn yVault and receives yvTokens (yVault shares)
     ///      supply yvTokens into market and enable them as collateral
-    function supplyInYVTokens(uint256 amount) external {
-        uint256 yvTokesAmount = _depositIntoYearn(msg.sender, amount);
+    function supplyInYVTokens(uint256 amount) external whenNotPaused nonReentrant {
+        address user = msg.sender;
+        uint256 yvTokesAmount = _depositIntoYearn(user, amount);
 
         // deposit yVault tokens into market for user
-        uint256 err = dropsYearnMarket.mintTo(msg.sender, yvTokesAmount);
+        uint256 err = dropsYearnMarket.mintTo(yvTokesAmount, user);
         require(err != 0, '!mint');
 
         // enable as collateral
         IDropsYearnComptroller comptroller = dropsYearnMarket.comptroller();
         address[] memory markets = new address[](1);
         markets[0] = address(dropsYearnMarket);
-        comptroller.enterMarketsFrom(markets, msg.sender);
+        comptroller.enterMarketsFrom(markets, user);
     }
 
     /// @notice repay in yvTokens
-    function repayInYVTokens(uint256 amount) external {
+    function repayInYVTokens(uint256 amount) external whenNotPaused nonReentrant {
         uint256 yvTokesAmount = _depositIntoYearn(msg.sender, amount);
 
-        dropsYearnMarket.repayBorrowBehalf(msg.sender, yvTokesAmount);
+        uint256 err = dropsYearnMarket.repayBorrowBehalf(msg.sender, yvTokesAmount);
+        require(err != 0, '!repayBorrowBehalf');
     }
 
     /// @notice market will call this function to withdraw tokens from yearn yVault (yvToken)
     function redeem(
-        address reciver,
+        address receiver,
         uint256 amount
     ) external whenNotPaused nonReentrant returns (uint256 assets) {
         require(msg.sender == address(dropsYearnMarket), '!market');
@@ -90,9 +94,8 @@ contract YVTokenMigration is
             '!vaultAmount'
         );
 
-        assets = yVault.withdraw(amount);
-        require(assets > 0 && token.balanceOf(address(this)) >= asset, '!assets');
-        token.safeTransfer(receiver, assets);
+        assets = yVault.withdraw(amount, receiver);
+        require(assets > 0, '!assets');
     }
 
     /* ========== owner level functions ========== */
@@ -105,18 +108,18 @@ contract YVTokenMigration is
         _unpause();
     }
 
-    function emergencyWithdraw(address token, address receiver) external onlyOwner {
+    function emergencyWithdraw(address asset, address receiver) external onlyOwner {
         uint256 assetBalance;
-        if (token == address(0)) {
+        if (asset == address(0)) {
             // ether
             assetBalance = (address(this)).balance;
             payable(receiver).transfer(assetBalance);
         } else {
-            assetBalance = IERC20Upgradeable(token).balanceOf(address(this));
-            IERC20Upgradeable(token).safeTransfer(receiver, assetBalance);
+            assetBalance = IERC20Upgradeable(asset).balanceOf(address(this));
+            IERC20Upgradeable(asset).safeTransfer(receiver, assetBalance);
         }
         if (assetBalance > 0) {
-            emit LogEmergencyWithdraw(receiver, token, assetBalance);
+            emit LogEmergencyWithdraw(receiver, asset, assetBalance);
         }
     }
 }

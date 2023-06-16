@@ -9,7 +9,7 @@ import '@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol';
 
 import '../interfaces/drops/IDropsCompoundingVault.sol';
 import '../interfaces/drops/IDropsAuraMarket.sol';
-import '../interfaces/aura/IAuraRewardPool.sol';
+import '../interfaces/aura/IAuraBaseRewardPool.sol';
 
 /** @title AuraLPMigration: get balanceLP from Aura and supply
  */
@@ -22,7 +22,7 @@ contract AuraLPMigration is
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
     /// @notice aura base reward pool
-    IAuraRewardPool public auraRewardPool;
+    IAuraBaseRewardPool public auraRewardPool;
 
     /// @notice auto compounding vault
     IDropsCompoundingVault public compoundingVault;
@@ -37,7 +37,7 @@ contract AuraLPMigration is
     event LogEmergencyWithdraw(address indexed from, address indexed asset, uint256 amount);
 
     function initialize(
-        IAuraRewardPool _auraRewardPool,
+        IAuraBaseRewardPool _auraRewardPool,
         IDropsCompoundingVault _compoundingVault,
         IDropsAuraMarket _dropsAuraMarket
     ) public payable initializer {
@@ -62,7 +62,7 @@ contract AuraLPMigration is
     /// @param amount of Aura pool tokens to withdraw
     function supplyToMarket(
         uint256 amount
-    ) external nonReentrant whenNotPaused returns (uint256 shares) {
+    ) external whenNotPaused nonReentrant returns (uint256 shares) {
         address user = msg.sender;
 
         require(auraRewardPool.allowance(user, address(this)) >= amount, '!allowance');

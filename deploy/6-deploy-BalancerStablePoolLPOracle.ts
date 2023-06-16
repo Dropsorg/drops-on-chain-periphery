@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/5-deploy-BalancerStablePoolLPOracle.ts
+// deploy/6-deploy-BalancerStablePoolLPOracle.ts
 const deployBalancerStablePoolLPOracle: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {
@@ -12,6 +12,7 @@ const deployBalancerStablePoolLPOracle: DeployFunction = async function (
   const { deployer } = await getNamedAccounts();
 
   const factoryAddr = (await get('ChainlinkPriceFactory')).address;
+  console.log('=====>factoryAddr', factoryAddr);
   const BalancerPoolAddr = '';
 
   await deploy('BalancerStablePoolLPOracle', {

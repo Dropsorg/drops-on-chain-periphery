@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/7-deploy-YVTokenMigration.ts
+// deploy/8-deploy-YVTokenMigration.ts
 const deployYVTokenMigration: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
     deployments: { deploy, get },

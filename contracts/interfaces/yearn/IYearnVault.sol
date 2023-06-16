@@ -7,4 +7,6 @@ interface IYearnVault {
     function deposit(uint256 amount, address recipient) external returns (uint256);
 
     function withdraw(uint256 maxShares, address recipient) external returns (uint256);
+
+    function balanceOf(address account) external view returns (uint256);
 }

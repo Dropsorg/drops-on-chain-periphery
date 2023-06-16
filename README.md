@@ -1,10 +1,19 @@
 # OnChain Oracles
 
-## NFTOracle Manager
+## ERC20 Oracles
 
-- 0x88Ec9a439235f306a50A45f1C6114B4052DB9DC8
+- ChainlinkPriceFactory: 0xB08742E82cC6743D8a1Cf2473aD36c9Ea9D477fD
 
-## Oracles
+### Aura Markets
+
+| Contract                         | Address                                    |
+| -------------------------------- | ------------------------------------------ |
+| wstETH-WETH balancer LP Oracle   | 0x023F638f718758752548d407De4b2f93D5Bcb66B |
+| wstETH-WETH LP VaultShare oracle | 0xC76e23382DbdC8e0f1913d592544C8Ef665461eF |
+
+## NFT Oracles
+
+- NFTOracleManager: 0x88Ec9a439235f306a50A45f1C6114B4052DB9DC8
 
 ### Pool 1 - Ocean
 

@@ -15,8 +15,8 @@ contract CompoudingVaultOracle is IDropsOracle {
     IDropsOracle public immutable oracle;
 
     constructor(IDropsCompoundingVault _vault, IDropsOracle _oracle) {
-        oracle = _oracle;
         vault = _vault;
+        oracle = _oracle;
     }
 
     function decimals() external pure override returns (uint8) {
