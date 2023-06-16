@@ -13,7 +13,7 @@ import '../../lib/BalancerLib.sol';
  */
 contract BalancerStablePoolLPOracle is IDropsOracle {
     /// @notice address to the price factory
-    address public immutable factory;
+    IChainlinkPriceFactory public immutable factory;
 
     /// @notice balancer pool
     IBalancerPool public immutable pool;
@@ -30,8 +30,8 @@ contract BalancerStablePoolLPOracle is IDropsOracle {
     /// @notice balancer pool token decimals
     uint8[] public tokenDecimals;
 
-    constructor(address _factory, IBalancerPool _pool) {
-        require(_factory != address(0), '_factory address cannot be 0');
+    constructor(IChainlinkPriceFactory _factory, IBalancerPool _pool) {
+        require(address(_factory) != address(0), '_factory address cannot be 0');
         require(address(_pool) != address(0), '_pool address cannot be 0');
 
         factory = _factory;
