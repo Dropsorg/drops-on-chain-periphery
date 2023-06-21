@@ -11,6 +11,10 @@
 | -------------------------------- | ------------------------------------------ |
 | wstETH-WETH balancer LP Oracle   | 0x023F638f718758752548d407De4b2f93D5Bcb66B |
 | wstETH-WETH LP VaultShare oracle | 0xC76e23382DbdC8e0f1913d592544C8Ef665461eF |
+| OHM-DAI balancer LP Oracle       | 0x9386e23aD2B4a376F74F717B0fCF72813BF23843 |
+| OHM-DAI LP VaultShare oracle     | 0xc7957A3266E295bDc1829F1bEfea03525cAf4eeC |
+| rETH-ETH balancer LP Oracle      | 0x81e6Add49aEf0772E1985a65fd8611E18BD51540 |
+| rETH-ETH LP VaultShare oracle    | 0xdAa9a5290946640B71751686CB9885a75D649089 |
 
 ### yToken Markets
 

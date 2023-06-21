@@ -11,9 +11,8 @@ const deployBalancerStablePoolLPOracle: DeployFunction = async function (
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const factoryAddr = (await get('ChainlinkPriceFactory')).address;
-  console.log('=====>factoryAddr', factoryAddr);
-  const BalancerPoolAddr = '';
+  const factoryAddr = '0xB08742E82cC6743D8a1Cf2473aD36c9Ea9D477fD';
+  const BalancerPoolAddr = '0x1E19CF2D73a72Ef1332C882F20534B6519Be0276';
 
   await deploy('BalancerStablePoolLPOracle', {
     from: deployer,

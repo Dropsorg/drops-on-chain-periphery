@@ -11,12 +11,12 @@ const deployCompoudingVaultOracle: DeployFunction = async function (
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const vault = '0xe9738c244ab22071ca81e5553ffe2ac94898c01c';
-  const oracle = '0x023F638f718758752548d407De4b2f93D5Bcb66B';
+  const vault = '0x83fEE6fFdcc669dB9CCef9Fa452FF0984422d740';
+  const lpOracle = '0x81e6Add49aEf0772E1985a65fd8611E18BD51540';
 
   await deploy('CompoudingVaultOracle', {
     from: deployer,
-    args: [vault, oracle],
+    args: [vault, lpOracle],
     log: true,
   });
 };
