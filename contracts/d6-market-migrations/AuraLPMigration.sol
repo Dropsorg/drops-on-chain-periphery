@@ -137,4 +137,20 @@ contract AuraLPMigration is
             emit LogEmergencyWithdraw(receiver, asset, assetBalance);
         }
     }
+
+    function setAddresses(
+        IAuraBaseRewardPool _auraRewardPool,
+        IDropsCompoundingVault _compoundingVault,
+        IDropsAuraMarket _dropsAuraMarket
+    ) external onlyOwner {
+        require(
+            _auraRewardPool.asset() == address(_compoundingVault.want()),
+            'aura asset are not same with compoundingVault want'
+        );
+
+        compoundingVault = _compoundingVault;
+        auraRewardPool = _auraRewardPool;
+        dropsAuraMarket = _dropsAuraMarket;
+        balancerLP = IERC20Upgradeable(_auraRewardPool.asset());
+    }
 }

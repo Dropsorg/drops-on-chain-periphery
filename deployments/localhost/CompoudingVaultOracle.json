@@ -1,0 +1,119 @@
+{
+  "address": "0x38628490c3043E5D0bbB26d5a0a62fC77342e9d5",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IDropsCompoundingVault",
+          "name": "_vault",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IDropsOracle",
+          "name": "_oracle",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestAnswer",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "answer",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "oracle",
+      "outputs": [
+        {
+          "internalType": "contract IDropsOracle",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "vault",
+      "outputs": [
+        {
+          "internalType": "contract IDropsCompoundingVault",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xc69a8cffa1ed6976978d8a0b6438c9206bfee60b3179c5f8ecd1f3136a1a7942",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x38628490c3043E5D0bbB26d5a0a62fC77342e9d5",
+    "transactionIndex": 0,
+    "gasUsed": "412555",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xbebbe6842db6417b062f2120d4381bd7ceec614ea6147b82b9b0a6251c5debcb",
+    "transactionHash": "0xc69a8cffa1ed6976978d8a0b6438c9206bfee60b3179c5f8ecd1f3136a1a7942",
+    "logs": [],
+    "blockNumber": 17536037,
+    "cumulativeGasUsed": "412555",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x83fEE6fFdcc669dB9CCef9Fa452FF0984422d740",
+    "0x81e6Add49aEf0772E1985a65fd8611E18BD51540"
+  ],
+  "solcInputHash": "2a79c4162b5952a6aa195452c697c39b",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IDropsCompoundingVault\",\"name\":\"_vault\",\"type\":\"address\"},{\"internalType\":\"contract IDropsOracle\",\"name\":\"_oracle\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contract IDropsOracle\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vault\",\"outputs\":[{\"internalType\":\"contract IDropsCompoundingVault\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"compouding vault erc20 token's price oracle\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"oracle()\":{\"notice\":\"address to the oracle of balancer LP\"},\"vault()\":{\"notice\":\"address to the compouding vault\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/oracle/priceAggregators/CompoudingVaultOracle.sol\":\"CompoudingVaultOracle\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface AggregatorInterface {\\n  function latestAnswer() external view returns (int256);\\n\\n  function latestTimestamp() external view returns (uint256);\\n\\n  function latestRound() external view returns (uint256);\\n\\n  function getAnswer(uint256 roundId) external view returns (int256);\\n\\n  function getTimestamp(uint256 roundId) external view returns (uint256);\\n\\n  event AnswerUpdated(int256 indexed current, uint256 indexed roundId, uint256 updatedAt);\\n\\n  event NewRound(uint256 indexed roundId, address indexed startedBy, uint256 startedAt);\\n}\\n\",\"keccak256\":\"0xb496651006b9a2a07920ffe116928b11e2a6458e21361cecca51409522488ca7\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20Upgradeable {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `from` to `to` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\\n}\\n\",\"keccak256\":\"0x0e1f0f5f62f67a881cd1a9597acbc0a5e4071f3c2c10449a183b922ae7272e3f\",\"license\":\"MIT\"},\"contracts/interfaces/drops/IDropsCompoundingVault.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport '@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol';\\n\\ninterface IDropsCompoundingVault {\\n    function deposit(uint amount) external returns (uint256);\\n\\n    function withdraw(uint amount) external returns (uint256);\\n\\n    function want() external view returns (IERC20Upgradeable);\\n\\n    function getPricePerFullShare() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xd3430fe6f58e85151282344a080d67ea2f6a3e05f6f2f725abed5c88c5c42597\",\"license\":\"MIT\"},\"contracts/interfaces/drops/IDropsOracle.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport '@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol';\\n\\ninterface IDropsOracle {\\n    function latestAnswer() external view returns (int256);\\n\\n    function decimals() external view returns (uint8);\\n}\\n\",\"keccak256\":\"0x87e27a358f4eb0428b60bff5be5743ef7f794cba244c735f0e913cac26b66d0c\",\"license\":\"MIT\"},\"contracts/oracle/priceAggregators/CompoudingVaultOracle.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport '../../interfaces/drops/IDropsCompoundingVault.sol';\\nimport '../../interfaces/drops/IDropsOracle.sol';\\n\\n/**\\n * @title compouding vault erc20 token's price oracle\\n */\\ncontract CompoudingVaultOracle is IDropsOracle {\\n    /// @notice address to the compouding vault\\n    IDropsCompoundingVault public immutable vault;\\n\\n    /// @notice address to the oracle of balancer LP\\n    IDropsOracle public immutable oracle;\\n\\n    constructor(IDropsCompoundingVault _vault, IDropsOracle _oracle) {\\n        vault = _vault;\\n        oracle = _oracle;\\n    }\\n\\n    function decimals() external pure override returns (uint8) {\\n        return 18;\\n    }\\n\\n    function latestAnswer() external view override returns (int256 answer) {\\n        return (oracle.latestAnswer() * int256(vault.getPricePerFullShare())) / 1e18;\\n    }\\n}\\n\",\"keccak256\":\"0x265224c0034526b18bdf2df8654ee57fc24afbd4c1b898b1e84c078e98120af6\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60c060405234801561001057600080fd5b50604051610833380380610833833981810160405281019061003291906100d1565b8173ffffffffffffffffffffffffffffffffffffffff1660808173ffffffffffffffffffffffffffffffffffffffff1660601b815250508073ffffffffffffffffffffffffffffffffffffffff1660a08173ffffffffffffffffffffffffffffffffffffffff1660601b815250505050610191565b6000815190506100b681610163565b92915050565b6000815190506100cb8161017a565b92915050565b600080604083850312156100e457600080fd5b60006100f2858286016100a7565b9250506020610103858286016100bc565b9150509250929050565b600061011882610143565b9050919050565b600061012a8261010d565b9050919050565b600061013c8261010d565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b61016c8161011f565b811461017757600080fd5b50565b61018381610131565b811461018e57600080fd5b50565b60805160601c60a05160601c61066a6101c96000396000818161017d015261023401526000818160df0152610258015261066a6000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063313ce5671461005157806350d25bcd1461006f5780637dc0d1d01461008d578063fbfa77cf146100ab575b600080fd5b6100596100c9565b6040516100669190610383565b60405180910390f35b6100776100d2565b6040516100849190610368565b60405180910390f35b610095610232565b6040516100a2919061034d565b60405180910390f35b6100b3610256565b6040516100c09190610332565b60405180910390f35b60006012905090565b6000670de0b6b3a76400007f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff166377c7b8fc6040518163ffffffff1660e01b815260040160206040518083038186803b15801561014357600080fd5b505afa158015610157573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061017b91906102cd565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156101e157600080fd5b505afa1580156101f5573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061021991906102a4565b6102239190610408565b61022d919061039e565b905090565b7f000000000000000000000000000000000000000000000000000000000000000081565b7f000000000000000000000000000000000000000000000000000000000000000081565b60008151905061028981610606565b92915050565b60008151905061029e8161061d565b92915050565b6000602082840312156102b657600080fd5b60006102c48482850161027a565b91505092915050565b6000602082840312156102df57600080fd5b60006102ed8482850161028f565b91505092915050565b6102ff81610560565b82525050565b61030e81610584565b82525050565b61031d8161051f565b82525050565b61032c81610553565b82525050565b600060208201905061034760008301846102f6565b92915050565b60006020820190506103626000830184610305565b92915050565b600060208201905061037d6000830184610314565b92915050565b60006020820190506103986000830184610323565b92915050565b60006103a98261051f565b91506103b48361051f565b9250826103c4576103c36105d7565b5b600160000383147f8000000000000000000000000000000000000000000000000000000000000000831416156103fd576103fc6105a8565b5b828205905092915050565b60006104138261051f565b915061041e8361051f565b9250827f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff048211600084136000841316161561045d5761045c6105a8565b5b817f8000000000000000000000000000000000000000000000000000000000000000058312600084126000841316161561049a576104996105a8565b5b827f800000000000000000000000000000000000000000000000000000000000000005821260008413600084121616156104d7576104d66105a8565b5b827f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0582126000841260008412161615610514576105136105a8565b5b828202905092915050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600060ff82169050919050565b600061056b82610572565b9050919050565b600061057d82610529565b9050919050565b600061058f82610596565b9050919050565b60006105a182610529565b9050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601260045260246000fd5b61060f8161051f565b811461061a57600080fd5b50565b61062681610549565b811461063157600080fd5b5056fea26469706673582212209215c201e5e8c662b2b0140d87e0b25cc277bff3af74f5703d2330ae5a1ccd7264736f6c63430008040033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c8063313ce5671461005157806350d25bcd1461006f5780637dc0d1d01461008d578063fbfa77cf146100ab575b600080fd5b6100596100c9565b6040516100669190610383565b60405180910390f35b6100776100d2565b6040516100849190610368565b60405180910390f35b610095610232565b6040516100a2919061034d565b60405180910390f35b6100b3610256565b6040516100c09190610332565b60405180910390f35b60006012905090565b6000670de0b6b3a76400007f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff166377c7b8fc6040518163ffffffff1660e01b815260040160206040518083038186803b15801561014357600080fd5b505afa158015610157573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061017b91906102cd565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff166350d25bcd6040518163ffffffff1660e01b815260040160206040518083038186803b1580156101e157600080fd5b505afa1580156101f5573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061021991906102a4565b6102239190610408565b61022d919061039e565b905090565b7f000000000000000000000000000000000000000000000000000000000000000081565b7f000000000000000000000000000000000000000000000000000000000000000081565b60008151905061028981610606565b92915050565b60008151905061029e8161061d565b92915050565b6000602082840312156102b657600080fd5b60006102c48482850161027a565b91505092915050565b6000602082840312156102df57600080fd5b60006102ed8482850161028f565b91505092915050565b6102ff81610560565b82525050565b61030e81610584565b82525050565b61031d8161051f565b82525050565b61032c81610553565b82525050565b600060208201905061034760008301846102f6565b92915050565b60006020820190506103626000830184610305565b92915050565b600060208201905061037d6000830184610314565b92915050565b60006020820190506103986000830184610323565b92915050565b60006103a98261051f565b91506103b48361051f565b9250826103c4576103c36105d7565b5b600160000383147f8000000000000000000000000000000000000000000000000000000000000000831416156103fd576103fc6105a8565b5b828205905092915050565b60006104138261051f565b915061041e8361051f565b9250827f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff048211600084136000841316161561045d5761045c6105a8565b5b817f8000000000000000000000000000000000000000000000000000000000000000058312600084126000841316161561049a576104996105a8565b5b827f800000000000000000000000000000000000000000000000000000000000000005821260008413600084121616156104d7576104d66105a8565b5b827f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0582126000841260008412161615610514576105136105a8565b5b828202905092915050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600060ff82169050919050565b600061056b82610572565b9050919050565b600061057d82610529565b9050919050565b600061058f82610596565b9050919050565b60006105a182610529565b9050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601260045260246000fd5b61060f8161051f565b811461061a57600080fd5b50565b61062681610549565b811461063157600080fd5b5056fea26469706673582212209215c201e5e8c662b2b0140d87e0b25cc277bff3af74f5703d2330ae5a1ccd7264736f6c63430008040033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "title": "compouding vault erc20 token's price oracle",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "oracle()": {
+        "notice": "address to the oracle of balancer LP"
+      },
+      "vault()": {
+        "notice": "address to the compouding vault"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

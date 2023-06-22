@@ -38,6 +38,12 @@ contract YVTokenMigration is
         __ReentrancyGuard_init();
         __Pausable_init();
 
+        _setAddresses(_yVault, _dropsYearnMarket);
+    }
+
+    /* ========== internal functions ========== */
+
+    function _setAddresses(IYearnVault _yVault, IDropsYearnMarket _dropsYearnMarket) internal {
         yVault = _yVault;
         dropsYearnMarket = _dropsYearnMarket;
         token = IERC20Upgradeable(yVault.token());
@@ -52,9 +58,12 @@ contract YVTokenMigration is
         token.safeTransferFrom(user, address(this), amount);
 
         // deposit tokens into yVault
+        token.safeApprove(address(yVault), amount);
         yvTokesAmount = yVault.deposit(amount, address(this));
         require(yVault.balanceOf(address(this)) >= yvTokesAmount, '!deposit');
     }
+
+    /* ========== external functions ========== */
 
     /// @notice supply yvTokens into market
     /// @dev callter should approve this contract before calling.
@@ -65,6 +74,7 @@ contract YVTokenMigration is
         uint256 yvTokesAmount = _depositIntoYearn(user, amount);
 
         // deposit yVault tokens into market for user
+        IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
         uint256 err = dropsYearnMarket.mintTo(yvTokesAmount, user);
         require(err != 0, '!mint');
 
@@ -76,9 +86,13 @@ contract YVTokenMigration is
     }
 
     /// @notice repay in yvTokens
+    /// @dev callter should approve this contract before calling.
+    ///      deposit tokens into yearn yVault and receives yvTokens (yVault shares)
+    ///      repay in yvTokens
     function repayInYVTokens(uint256 amount) external whenNotPaused nonReentrant {
         uint256 yvTokesAmount = _depositIntoYearn(msg.sender, amount);
 
+        IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
         uint256 err = dropsYearnMarket.repayBorrowBehalf(msg.sender, yvTokesAmount);
         require(err != 0, '!repayBorrowBehalf');
     }
@@ -121,5 +135,19 @@ contract YVTokenMigration is
         if (assetBalance > 0) {
             emit LogEmergencyWithdraw(receiver, asset, assetBalance);
         }
+    }
+
+    function setAddresses(
+        IYearnVault _yVault,
+        IDropsYearnMarket _dropsYearnMarket
+    ) external onlyOwner {
+        require(
+            address(_yVault) != address(0) && address(_dropsYearnMarket) != address(0),
+            '!address'
+        );
+
+        yVault = _yVault;
+        dropsYearnMarket = _dropsYearnMarket;
+        token = IERC20Upgradeable(yVault.token());
     }
 }
