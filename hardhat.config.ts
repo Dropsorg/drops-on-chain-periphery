@@ -6,6 +6,7 @@ import 'hardhat-deploy';
 import 'solidity-coverage';
 import 'hardhat-contract-sizer';
 import 'hardhat-gas-reporter';
+import '@openzeppelin/hardhat-upgrades';
 
 import { HardhatUserConfig } from 'hardhat/types';
 import { task } from 'hardhat/config';
@@ -49,6 +50,9 @@ export default {
     deployer: 0,
   },
   networks: {
+    localhost: {
+      url: 'http://127.0.0.1:8545',
+    },
     hardhat: {
       initialBaseFeePerGas: 0,
       forking: {
