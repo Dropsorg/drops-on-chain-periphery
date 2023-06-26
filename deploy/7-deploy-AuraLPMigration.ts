@@ -14,16 +14,22 @@ const deployAuraLPMigration: DeployFunction = async function (hre: HardhatRuntim
   const compoudingVault = '0xe9738c244ab22071ca81e5553ffe2ac94898c01c';
   const auraMarket = '0xa0eab20aA091cb03f82410586b8e270f19B04A00';
 
+  // await deploy('AuraLPMigration', {
+  //   from: deployer,
+  //   proxy: {
+  //     owner: deployer,
+  //     proxyContract: 'OpenZeppelinTransparentProxy',
+  //     execute: {
+  //       methodName: 'initialize',
+  //       args: [auraPool, compoudingVault, auraMarket],
+  //     },
+  //   },
+  //   log: true,
+  // });
+
   await deploy('AuraLPMigration', {
     from: deployer,
-    proxy: {
-      owner: deployer,
-      proxyContract: 'OpenZeppelinTransparentProxy',
-      execute: {
-        methodName: 'initialize',
-        args: [auraPool, compoudingVault, auraMarket]
-      },
-    },
+    args: [],
     log: true,
   });
 };

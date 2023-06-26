@@ -45,6 +45,14 @@ contract AuraLPMigration is
         __ReentrancyGuard_init();
         __Pausable_init();
 
+        _setAddresses(_auraRewardPool, _compoundingVault, _dropsAuraMarket);
+    }
+
+    function _setAddresses(
+        IAuraBaseRewardPool _auraRewardPool,
+        IDropsCompoundingVault _compoundingVault,
+        IDropsAuraMarket _dropsAuraMarket
+    ) internal {
         require(
             _auraRewardPool.asset() == address(_compoundingVault.want()),
             'aura asset are not same with compoundingVault want'
@@ -64,7 +72,6 @@ contract AuraLPMigration is
         uint256 amount
     ) external whenNotPaused nonReentrant returns (uint256 shares) {
         address user = msg.sender;
-
         require(auraRewardPool.allowance(user, address(this)) >= amount, '!allowance');
 
         // withdraw from Aura
@@ -72,12 +79,12 @@ contract AuraLPMigration is
         require(balancerLP.balanceOf(address(this)) >= amount, '!assets');
 
         // deposit into compounding compoundingVault and get erc20
-        balancerLP.approve(address(compoundingVault), amount);
+        balancerLP.safeApprove(address(compoundingVault), amount);
         shares = compoundingVault.deposit(amount);
 
         // supply to market
         uint256 err = dropsAuraMarket.mintTo(shares, user);
-        require(err != 0, '!mint');
+        require(err == 0, '!mint');
 
         // enable as collateral
         IDropsAuraComptroller comptroller = dropsAuraMarket.comptroller();
@@ -108,7 +115,7 @@ contract AuraLPMigration is
         if (withdrawType == 1) {
             balancerLP.safeTransfer(reciver, withdrawBalance);
         } else {
-            balancerLP.approve(address(auraRewardPool), withdrawBalance);
+            balancerLP.safeApprove(address(auraRewardPool), withdrawBalance);
             auraRewardPool.stakeFor(reciver, withdrawBalance);
         }
     }
@@ -143,14 +150,6 @@ contract AuraLPMigration is
         IDropsCompoundingVault _compoundingVault,
         IDropsAuraMarket _dropsAuraMarket
     ) external onlyOwner {
-        require(
-            _auraRewardPool.asset() == address(_compoundingVault.want()),
-            'aura asset are not same with compoundingVault want'
-        );
-
-        compoundingVault = _compoundingVault;
-        auraRewardPool = _auraRewardPool;
-        dropsAuraMarket = _dropsAuraMarket;
-        balancerLP = IERC20Upgradeable(_auraRewardPool.asset());
+        _setAddresses(_auraRewardPool, _compoundingVault, _dropsAuraMarket);
     }
 }

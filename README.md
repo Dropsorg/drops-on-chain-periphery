@@ -9,24 +9,24 @@
 
 | Contract                         | Address                                    |
 | -------------------------------- | ------------------------------------------ |
+| wstETH-WETH LP migration proxy   | 0xA20334757e7bb2aF2617ae4AdD25e6ed24886a40 |
+| wstETH-WETH LP migration impl    | 0xD33dEC0c452614F06D10b6d4e0CF3b4e66c77A0c |
+| wstETH-WETH LP migration admin   | 0x95bb945eC12DDbda17262997CFD951B9Ad8F4F3c |
+| D6-aura-wstETH-ETH               | 0xa0eab20aA091cb03f82410586b8e270f19B04A00 |
 | wstETH-WETH balancer LP Oracle   | 0x023F638f718758752548d407De4b2f93D5Bcb66B |
 | wstETH-WETH LP VaultShare oracle | 0xC76e23382DbdC8e0f1913d592544C8Ef665461eF |
 | wstETH-WETH LP compouding vault  | 0xe9738c244aB22071cA81E5553Ffe2aC94898C01c |
-| wstETH-WETH LP migration proxy   | 0xA20334757e7bb2aF2617ae4AdD25e6ed24886a40 |
-| wstETH-WETH LP migration impl    | 0x03030c8eb100533f87e03f1D87cA8A7668F0C78D |
-| wstETH-WETH LP migration admin   | 0x95bb945eC12DDbda17262997CFD951B9Ad8F4F3c |
-| D6-aura-wstETH-ETH               | 0xa0eab20aA091cb03f82410586b8e270f19B04A00 |
 
 ### D6 yvUSDC contracts
 
-| Contract               | Address                                    |
-| ---------------------- | ------------------------------------------ |
-| yvUSDC Oracle          | 0x7BA23AEE69dd2Cd4e4aed8616Ae3Ba02435e0B62 |
-| yvUSDC market          | 0x23dEBe55E473279Fa8189c22a2c8f08AfbeF39e0 |
-| yvUSDC vault           | 0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE |
-| yvUSDC migration proxy | 0xA7640072896645f8B5D32C306047713eBF9D60F3 |
-| yvUSDC migration impl  | 0xe32DABfe23cd630f592794e939A18dF039bE57ea |
-| yvUSDC migration admin | 0x95bb945eC12DDbda17262997CFD951B9Ad8F4F3c |
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| yvUSDC Oracle           | 0x7BA23AEE69dd2Cd4e4aed8616Ae3Ba02435e0B62 |
+| yvUSDC drops market     | 0x23dEBe55E473279Fa8189c22a2c8f08AfbeF39e0 |
+| yvUSDC compouding vault | 0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE |
+| yvUSDC migration proxy  | 0xA7640072896645f8B5D32C306047713eBF9D60F3 |
+| yvUSDC migration impl   | 0x621c8376362A08c9fed1CF14fd8AD59326623159 |
+| yvUSDC migration admin  | 0x95bb945eC12DDbda17262997CFD951B9Ad8F4F3c |
 
 ### Aura Markets
 

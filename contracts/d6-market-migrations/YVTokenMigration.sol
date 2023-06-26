@@ -44,6 +44,11 @@ contract YVTokenMigration is
     /* ========== internal functions ========== */
 
     function _setAddresses(IYearnVault _yVault, IDropsYearnMarket _dropsYearnMarket) internal {
+        require(
+            address(_yVault) != address(0) && address(_dropsYearnMarket) != address(0),
+            '!address'
+        );
+
         yVault = _yVault;
         dropsYearnMarket = _dropsYearnMarket;
         token = IERC20Upgradeable(yVault.token());
@@ -76,7 +81,7 @@ contract YVTokenMigration is
         // deposit yVault tokens into market for user
         IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
         uint256 err = dropsYearnMarket.mintTo(yvTokesAmount, user);
-        require(err != 0, '!mint');
+        require(err == 0, '!mint');
 
         // enable as collateral
         IDropsYearnComptroller comptroller = dropsYearnMarket.comptroller();
@@ -94,7 +99,7 @@ contract YVTokenMigration is
 
         IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
         uint256 err = dropsYearnMarket.repayBorrowBehalf(msg.sender, yvTokesAmount);
-        require(err != 0, '!repayBorrowBehalf');
+        require(err == 0, '!repayBorrowBehalf');
     }
 
     /// @notice market will call this function to withdraw tokens from yearn yVault (yvToken)
@@ -141,13 +146,6 @@ contract YVTokenMigration is
         IYearnVault _yVault,
         IDropsYearnMarket _dropsYearnMarket
     ) external onlyOwner {
-        require(
-            address(_yVault) != address(0) && address(_dropsYearnMarket) != address(0),
-            '!address'
-        );
-
-        yVault = _yVault;
-        dropsYearnMarket = _dropsYearnMarket;
-        token = IERC20Upgradeable(yVault.token());
+        _setAddresses(_yVault, _dropsYearnMarket);
     }
 }
