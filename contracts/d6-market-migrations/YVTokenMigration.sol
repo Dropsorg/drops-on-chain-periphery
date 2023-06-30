@@ -75,6 +75,8 @@ contract YVTokenMigration is
     ///      deposit tokens into yearn yVault and receives yvTokens (yVault shares)
     ///      supply yvTokens into market and enable them as collateral
     function supplyInYVTokens(uint256 amount) external whenNotPaused nonReentrant {
+        require(amount > 0, '!amount');
+
         address user = msg.sender;
         uint256 yvTokesAmount = _depositIntoYearn(user, amount);
 
@@ -82,6 +84,10 @@ contract YVTokenMigration is
         IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
         uint256 err = dropsYearnMarket.mintTo(yvTokesAmount, user);
         require(err == 0, '!mint');
+        require(
+            IERC20Upgradeable(address(dropsYearnMarket)).balanceOf(address(this)) > 0,
+            '!no mint'
+        );
 
         // enable as collateral
         IDropsYearnComptroller comptroller = dropsYearnMarket.comptroller();
@@ -95,6 +101,8 @@ contract YVTokenMigration is
     ///      deposit tokens into yearn yVault and receives yvTokens (yVault shares)
     ///      repay in yvTokens
     function repayInYVTokens(uint256 amount) external whenNotPaused nonReentrant {
+        require(amount > 0, '!amount');
+
         uint256 yvTokesAmount = _depositIntoYearn(msg.sender, amount);
 
         IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
@@ -107,6 +115,8 @@ contract YVTokenMigration is
         address receiver,
         uint256 amount
     ) external whenNotPaused nonReentrant returns (uint256 assets) {
+        require(amount > 0, '!amount');
+        require(receiver != address(0), '!receiver');
         require(msg.sender == address(dropsYearnMarket), '!market');
         require(
             IERC20Upgradeable(address(yVault)).balanceOf(address(this)) >= amount,

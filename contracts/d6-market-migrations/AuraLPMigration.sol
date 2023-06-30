@@ -71,6 +71,8 @@ contract AuraLPMigration is
     function supplyToMarket(
         uint256 amount
     ) external whenNotPaused nonReentrant returns (uint256 shares) {
+        require(amount > 0, '!amount');
+
         address user = msg.sender;
         require(auraRewardPool.allowance(user, address(this)) >= amount, '!allowance');
 
@@ -81,10 +83,16 @@ contract AuraLPMigration is
         // deposit into compounding compoundingVault and get erc20
         balancerLP.safeApprove(address(compoundingVault), amount);
         shares = compoundingVault.deposit(amount);
+        require(shares > 0, '!deposit');
 
         // supply to market
+        IERC20Upgradeable(address(compoundingVault)).safeApprove(address(dropsAuraMarket), shares);
         uint256 err = dropsAuraMarket.mintTo(shares, user);
         require(err == 0, '!mint');
+        require(
+            IERC20Upgradeable(address(dropsAuraMarket)).balanceOf(address(this)) > 0,
+            '!no mint'
+        );
 
         // enable as collateral
         IDropsAuraComptroller comptroller = dropsAuraMarket.comptroller();
@@ -100,7 +108,9 @@ contract AuraLPMigration is
         address reciver,
         uint256 amount,
         uint256 withdrawType
-    ) external whenNotPaused nonReentrant {
+    ) external whenNotPaused nonReentrant returns (uint256 withdrawBalance) {
+        require(amount > 0, '!amount');
+        require(reciver != address(0), '!reciver');
         require(msg.sender == address(dropsAuraMarket), '!market');
         require(withdrawType == 1 || withdrawType == 2, '!withdrawType');
         require(
@@ -108,7 +118,7 @@ contract AuraLPMigration is
             '!vaultAmount'
         );
 
-        uint256 withdrawBalance = compoundingVault.withdraw(amount);
+        withdrawBalance = compoundingVault.withdraw(amount);
         require(withdrawBalance > 0, '!withdrawBalance');
         require(balancerLP.balanceOf(address(this)) >= withdrawBalance, '!lpBalance');
 
@@ -116,7 +126,7 @@ contract AuraLPMigration is
             balancerLP.safeTransfer(reciver, withdrawBalance);
         } else {
             balancerLP.safeApprove(address(auraRewardPool), withdrawBalance);
-            auraRewardPool.stakeFor(reciver, withdrawBalance);
+            auraRewardPool.deposit(withdrawBalance, reciver);
         }
     }
 
