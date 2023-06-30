@@ -20,19 +20,16 @@
 
 # D6 Aura wstETH-WETH
 
-| Contract                         | Address                                    | Type                       |
-| -------------------------------- | ------------------------------------------ | -------------------------- |
-| wstETH-WETH LP migration         | 0xA20334757e7bb2aF2617ae4AdD25e6ed24886a40 | AuraLPMigration            |
-| D6-aura-wstETH-ETH               | 0xa0eab20aA091cb03f82410586b8e270f19B04A00 | CErc20AuraDelegate         |
-| wstETH-WETH balancer LP Oracle   | 0x023F638f718758752548d407De4b2f93D5Bcb66B | WstETHWETHBalancerLPOracle |
-| wstETH-WETH LP VaultShare oracle | 0xC76e23382DbdC8e0f1913d592544C8Ef665461eF | CompoudingVaultOracle      |
-| wstETH-WETH LP compouding vault  | 0xe9738c244aB22071cA81E5553Ffe2aC94898C01c | BeefyVaultV7               |
+| Contract          | Address                                    | Type                       |
+| ----------------- | ------------------------------------------ | -------------------------- |
+| LP migration      | 0xA20334757e7bb2aF2617ae4AdD25e6ed24886a40 | AuraLPMigration            |
+| BalancerLP Oracle | 0x023F638f718758752548d407De4b2f93D5Bcb66B | WstETHWETHBalancerLPOracle |
+| Vault oracle      | 0xC76e23382DbdC8e0f1913d592544C8Ef665461eF | CompoudingVaultOracle      |
 
 # D6 yvUSDC contracts
 
-| Contract                | Address                                    | Type             |
-| ----------------------- | ------------------------------------------ | ---------------- |
-| yvUSDC Oracle           | 0x7BA23AEE69dd2Cd4e4aed8616Ae3Ba02435e0B62 | YVTokenMigration |
-| yvUSDC drops market     | 0xA3a1A7598060Ac3ca11d7604019F3fFc32bCE7Ec |                  |
-| yvUSDC compouding vault | 0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE |                  |
-| yvUSDC migration        | 0xA7640072896645f8B5D32C306047713eBF9D60F3 |                  |
+| Contract      | Address                                    | Type                  |
+| ------------- | ------------------------------------------ | --------------------- |
+| LP migration  | 0xA7640072896645f8B5D32C306047713eBF9D60F3 | YVTokenMigration      |
+| yToken Oracle | 0x7BA23AEE69dd2Cd4e4aed8616Ae3Ba02435e0B62 | YVTokenPriceOracle    |
+| Vault Oracle  | 0xdAa9a5290946640B71751686CB9885a75D649089 | CompoudingVaultOracle |
