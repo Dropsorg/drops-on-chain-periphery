@@ -6,7 +6,7 @@ interface IAuraBaseRewardPool {
 
     function asset() external view returns (address);
 
-    function stakeFor(address account, uint256 amount) external;
+    function deposit(uint256 assets, address receiver) external returns (uint256);
 
     // IERC20
     function allowance(address owner, address spender) external view returns (uint256);

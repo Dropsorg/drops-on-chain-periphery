@@ -20,7 +20,7 @@ contract MockAuraBaseRewardPool is IAuraBaseRewardPool {
         return token;
     }
 
-    function stakeFor(address account, uint256 amount) external override {}
+    function deposit(uint256 assets, address receiver) external override returns (uint256) {}
 
     function allowance(address owner, address spender) external view override returns (uint256) {}
 }

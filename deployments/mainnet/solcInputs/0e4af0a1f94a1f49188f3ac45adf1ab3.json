@@ -1,0 +1,44 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface AggregatorInterface {\n  function latestAnswer() external view returns (int256);\n\n  function latestTimestamp() external view returns (uint256);\n\n  function latestRound() external view returns (uint256);\n\n  function getAnswer(uint256 roundId) external view returns (int256);\n\n  function getTimestamp(uint256 roundId) external view returns (uint256);\n\n  event AnswerUpdated(int256 indexed current, uint256 indexed roundId, uint256 updatedAt);\n\n  event NewRound(uint256 indexed roundId, address indexed startedBy, uint256 startedAt);\n}\n"
+    },
+    "contracts/interfaces/drops/IChainlinkPriceFactory.sol": {
+      "content": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IChainlinkPriceFactory {\n    function getUSDPrice(address asset) external view returns (int256);\n\n    function getETHPrice(address asset) external view returns (int256);\n}\n"
+    },
+    "contracts/interfaces/drops/IDropsOracle.sol": {
+      "content": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport '@chainlink/contracts/src/v0.8/interfaces/AggregatorInterface.sol';\n\ninterface IDropsOracle {\n    function latestAnswer() external view returns (int256);\n\n    function decimals() external view returns (uint8);\n}\n"
+    },
+    "contracts/oracle/priceAggregators/GOHMPriceOracle.sol": {
+      "content": "//SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport '../../interfaces/drops/IDropsOracle.sol';\nimport '../../interfaces/drops/IChainlinkPriceFactory.sol';\n\ninterface IGOHM {\n    function index() external view returns (uint256);\n}\n\n/**\n * @title OHM governance token price oracle\n */\ncontract GOHMPriceOracle is IDropsOracle {\n    /// @notice address to the price factory\n    IChainlinkPriceFactory public immutable factory;\n\n    /// @notice address to the OHM governance\n    IGOHM public immutable gOHM;\n\n    /// @notice address to the OHMV2 token\n    address public immutable OHM;\n\n    constructor(IChainlinkPriceFactory _factory, IGOHM _gOHM, address _OHM) {\n        factory = _factory;\n        gOHM = _gOHM;\n        OHM = _OHM;\n    }\n\n    function decimals() external pure override returns (uint8) {\n        return 18;\n    }\n\n    function latestAnswer() external view override returns (int256 answer) {\n        uint256 tokenETHPrice = uint256(IChainlinkPriceFactory(factory).getETHPrice(OHM));\n        require(tokenETHPrice > 0, '!aggregator');\n        return int256((tokenETHPrice * gOHM.index()) / 10 ** 9);\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
