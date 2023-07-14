@@ -14,9 +14,13 @@ contract CompoudingVaultOracle is IDropsOracle {
     /// @notice address to the oracle of balancer LP
     IDropsOracle public immutable oracle;
 
-    constructor(IDropsCompoundingVault _vault, IDropsOracle _oracle) {
+    /// @notice description of the oracle
+    string public description;
+
+    constructor(IDropsCompoundingVault _vault, IDropsOracle _oracle, string memory _description) {
         vault = _vault;
         oracle = _oracle;
+        description = _description;
     }
 
     function decimals() external pure override returns (uint8) {

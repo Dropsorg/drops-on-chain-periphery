@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/13-deploy-WstETHPriceOracle.ts
+// deploy/9-deploy-WstETHPriceOracle.ts
 const WstETHPriceOracle: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
     deployments: { deploy },
