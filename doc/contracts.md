@@ -4,11 +4,11 @@
 
 # Balancer LP oracle
 
-| Contract            | Address                                    | Type                       | Pools |
-| ------------------- | ------------------------------------------ | -------------------------- | ----- | ------------------------------------------ |
-| wstETH-WETH         | 0x023F638f718758752548d407De4b2f93D5Bcb66B | WstETHWETHBalancerLPOracle |       | 0xca4aC6a5aa66A40f8A263E7B4CAAC6a9dff0285B |
-| rETH-ETH            | 0x81e6Add49aEf0772E1985a65fd8611E18BD51540 | WstETHWETHBalancerLPOracle |       | 0x79edCDB9C581b6945F321F2cd6B307a257113DEE |
-| wstETH-rETH-sfrxETH |                                            |                            |       | 0x54B1C43a9ee9E621d052A574C48051218A280847 |
+| Contract            | Address                                    | Type | Pools |
+| ------------------- | ------------------------------------------ | ---- | ----- | ------------------------------------------ |
+| wstETH-WETH         | 0x023F638f718758752548d407De4b2f93D5Bcb66B |      |       | 0xca4aC6a5aa66A40f8A263E7B4CAAC6a9dff0285B |
+| rETH-ETH            | 0x81e6Add49aEf0772E1985a65fd8611E18BD51540 |      |       | 0x79edCDB9C581b6945F321F2cd6B307a257113DEE |
+| wstETH-rETH-sfrxETH |                                            |      |       | 0x54B1C43a9ee9E621d052A574C48051218A280847 |
 
 # Vault Oracle
 
