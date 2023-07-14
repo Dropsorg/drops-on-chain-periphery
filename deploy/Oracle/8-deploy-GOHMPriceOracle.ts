@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/12-deploy-GOHMPriceOracle.ts
+// deploy/8-deploy-GOHMPriceOracle.ts
 const deployGOHMPriceOracle: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {
     deployments: { deploy, get },

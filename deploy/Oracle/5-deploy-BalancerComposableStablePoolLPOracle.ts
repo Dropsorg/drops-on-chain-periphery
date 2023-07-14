@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/6-deploy-BalancerComposableStablePoolLPOracle.ts
+// deploy/5-deploy-BalancerComposableStablePoolLPOracle.ts
 const deployBalancerComposableStablePoolLPOracle: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {

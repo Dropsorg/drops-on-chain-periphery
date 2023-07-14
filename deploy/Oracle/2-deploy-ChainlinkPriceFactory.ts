@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/5-deploy-ChainlinkPriceFactory.ts
+// deploy/2-deploy-ChainlinkPriceFactory.ts
 const deployChainlinkPriceFactory: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {

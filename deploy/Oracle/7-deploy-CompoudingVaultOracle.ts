@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 
-// deploy/9-deploy-CompoudingVaultOracle.ts
+// deploy/7-deploy-CompoudingVaultOracle.ts
 const deployCompoudingVaultOracle: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {
