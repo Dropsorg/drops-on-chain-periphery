@@ -9,7 +9,7 @@ const deployGOHMPriceOracle: DeployFunction = async function (hre: HardhatRuntim
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const factoryAddr = '0xB08742E82cC6743D8a1Cf2473aD36c9Ea9D477fD';
+  const factoryAddr = '0x4148D2220511d3521E232ff0F6369a14A9737c9A';
   const gOHM = '0x0ab87046fbb341d058f17cbc4c1133f25a20a52f';
   const OHM = '0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5';
 

@@ -2,34 +2,36 @@
 pragma solidity ^0.8.0;
 
 import '@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol';
-import '@openzeppelin/contracts/access/Ownable.sol';
+import '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
 import '../interfaces/drops/IChainlinkPriceFactory.sol';
 
 /**
- * @title aggregator contract that provides USD price of tokens
+ * @title aggregator contract that provides price of tokens
  */
-contract ChainlinkPriceFactory is Ownable, IChainlinkPriceFactory {
+contract ChainlinkPriceFactory is OwnableUpgradeable, IChainlinkPriceFactory {
     /// @notice ETH/USD chainlink aggregator
     AggregatorV3Interface constant ETH_USD =
         AggregatorV3Interface(0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419);
 
     /// @notice token asset => address of USD chainlink aggregators
-    mapping(address => AggregatorV3Interface) usdAggregators;
+    mapping(address => AggregatorV3Interface) public usdAggregators;
 
     /// @notice token asset => address of ETH chainlink aggregators
-    mapping(address => AggregatorV3Interface) ethAggregators;
+    mapping(address => AggregatorV3Interface) public ethAggregators;
+
+    function initialize() public payable initializer {
+        __Ownable_init();
+    }
 
     function decimals() external pure returns (uint8) {
         return 18;
     }
 
     function setUSDAggregator(address asset, AggregatorV3Interface aggregator) external onlyOwner {
-        require(asset != address(0), '!asset');
         usdAggregators[asset] = aggregator;
     }
 
     function setETHAggregator(address asset, AggregatorV3Interface aggregator) external onlyOwner {
-        require(asset != address(0), '!asset');
         ethAggregators[asset] = aggregator;
     }
 

@@ -9,7 +9,7 @@ const deployYVTokenPriceOracle: DeployFunction = async function (hre: HardhatRun
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const factory = '0xB08742E82cC6743D8a1Cf2473aD36c9Ea9D477fD';
+  const factory = '0x4148D2220511d3521E232ff0F6369a14A9737c9A';
   const yvUSDC = '0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE';
   const yvUSDT = '0x3B27F92C0e212C671EA351827EDF93DB27cc0c65';
   const yvDAI = '0xdA816459F1AB5631232FE5e97a05BBBb94970c95';

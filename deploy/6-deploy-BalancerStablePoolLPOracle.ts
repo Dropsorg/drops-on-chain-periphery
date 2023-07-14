@@ -6,17 +6,18 @@ const deployBalancerStablePoolLPOracle: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {
   const {
-    deployments: { deploy, get },
+    deployments: { deploy },
     getNamedAccounts,
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const factoryAddr = '0xB08742E82cC6743D8a1Cf2473aD36c9Ea9D477fD';
-  const BalancerPoolAddr = '0x1E19CF2D73a72Ef1332C882F20534B6519Be0276';
-
   await deploy('BalancerStablePoolLPOracle', {
     from: deployer,
-    args: [factoryAddr, BalancerPoolAddr],
+    args: [
+      '0x4148D2220511d3521E232ff0F6369a14A9737c9A', // factory
+      // '0x32296969Ef14EB0c6d29669C550D4a0449130230', // Balancer stETH Stable Pool
+      '0x1E19CF2D73a72Ef1332C882F20534B6519Be0276', // Balancer rETH Stable Pool
+    ],
     log: true,
   });
 };

@@ -13,7 +13,14 @@ const deployChainlinkPriceFactory: DeployFunction = async function (
 
   await deploy('ChainlinkPriceFactory', {
     from: deployer,
-    args: [],
+    proxy: {
+      owner: deployer,
+      proxyContract: 'OpenZeppelinTransparentProxy',
+      execute: {
+        methodName: 'initialize',
+        args: [],
+      },
+    },
     log: true,
   });
 };
