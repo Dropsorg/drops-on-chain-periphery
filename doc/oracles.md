@@ -1,6 +1,7 @@
 # Manager Contracts
 
 - ChainlinkPriceFactory: 0x4148D2220511d3521E232ff0F6369a14A9737c9A
+- NFTOracleManager: 0x88Ec9a439235f306a50A45f1C6114B4052DB9DC8
 
 # Balancer LP oracle
 
@@ -10,7 +11,7 @@
 | rETH-ETH            | 0x81e6Add49aEf0772E1985a65fd8611E18BD51540 |      |       | 0x79edCDB9C581b6945F321F2cd6B307a257113DEE |
 | wstETH-rETH-sfrxETH |                                            |      |       | 0x54B1C43a9ee9E621d052A574C48051218A280847 |
 
-# Vault Oracle
+# Drops Beefy-Forked Compouding Vault Oracle
 
 | Contract                 | Address                                    | Type                  | Pools |
 | ------------------------ | ------------------------------------------ | --------------------- | ----- | ------------------------------------------ |

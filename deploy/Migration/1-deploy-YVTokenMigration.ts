@@ -34,7 +34,7 @@ const deployYVTokenMigration: DeployFunction = async function (hre: HardhatRunti
 
   const { yearnVault, dropsMarket, symbol } = data[1];
 
-  await deploy(`YVTokenMigration${symbol}`, {
+  await deploy(`YVTokenMigration`, {
     from: deployer,
     proxy: {
       owner: deployer,
