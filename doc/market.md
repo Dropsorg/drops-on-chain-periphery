@@ -15,12 +15,12 @@
 
 # Migrations
 
-| Contract            | Address                                    | Type             |
-| ------------------- | ------------------------------------------ | ---------------- |
-| wstETH-WETH         | 0xA20334757e7bb2aF2617ae4AdD25e6ed24886a40 | AuraLPMigration  |
-| wstETH-rETH-sfrxETH |                                            | AuraLPMigration  |
-| rETH-ETH            |                                            | AuraLPMigration  |
-| yvUSDC              | 0xA7640072896645f8B5D32C306047713eBF9D60F3 | YVTokenMigration |
-| yvUSDT              |                                            | YVTokenMigration |
-| yvWETH              |                                            | YVTokenMigration |
-| yvDAI               |                                            | YVTokenMigration |
+| Contract            | Address                                    | Type             | Pool  |
+| ------------------- | ------------------------------------------ | ---------------- | ----- |
+| yvUSDC              | 0xA7640072896645f8B5D32C306047713eBF9D60F3 | YVTokenMigration | Pool6 |
+| yvUSDT              | 0x862B4c1a21958F19C93d1eA1B492C6B7527923CB | YVTokenMigration | Pool6 |
+| yvWETH              | 0x32cF82cD4C1f4d4a5062E9Dac92FF4A9B6304968 | YVTokenMigration | Pool6 |
+| yvDAI               | 0xeF7C610AAfAba339DCd9Cb202bF0940dF95aDE6F | YVTokenMigration | Pool6 |
+| wstETH-WETH         | 0xA20334757e7bb2aF2617ae4AdD25e6ed24886a40 | AuraLPMigration  | Pool6 |
+| wstETH-rETH-sfrxETH | 0x80D45713E6d83754bC303Ea1651Dc4bACA8d7BB1 | AuraLPMigration  | Pool6 |
+| rETH-ETH            | 0x699382d6F3d8Bd7Bb028D3D513907Bc61231ADBf | AuraLPMigration  | Pool6 |

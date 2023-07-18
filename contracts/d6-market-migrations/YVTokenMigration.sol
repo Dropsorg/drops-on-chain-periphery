@@ -84,10 +84,6 @@ contract YVTokenMigration is
         IERC20Upgradeable(address(yVault)).safeApprove(address(dropsYearnMarket), yvTokesAmount);
         uint256 err = dropsYearnMarket.mintTo(yvTokesAmount, user);
         require(err == 0, '!mint');
-        require(
-            IERC20Upgradeable(address(dropsYearnMarket)).balanceOf(address(this)) > 0,
-            '!no mint'
-        );
 
         // enable as collateral
         IDropsYearnComptroller comptroller = dropsYearnMarket.comptroller();

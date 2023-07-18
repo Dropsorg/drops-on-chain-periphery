@@ -32,18 +32,23 @@ const deployYVTokenMigration: DeployFunction = async function (hre: HardhatRunti
   } = hre;
   const { deployer } = await getNamedAccounts();
 
-  const { yearnVault, dropsMarket, symbol } = data[1];
+  // const { yearnVault, dropsMarket } = data[3];
 
-  await deploy(`YVTokenMigration`, {
+  // await deploy('YVTokenMigration', {
+  //   from: deployer,
+  //   proxy: {
+  //     owner: deployer,
+  //     proxyContract: 'OpenZeppelinTransparentProxy',
+  //     execute: {
+  //       methodName: 'initialize',
+  //       args: [yearnVault, dropsMarket],
+  //     },
+  //   },
+  //   log: true,
+  // });
+  await deploy('YVTokenMigration', {
     from: deployer,
-    proxy: {
-      owner: deployer,
-      proxyContract: 'OpenZeppelinTransparentProxy',
-      execute: {
-        methodName: 'initialize',
-        args: [yearnVault, dropsMarket],
-      },
-    },
+    args: [],
     log: true,
   });
 };

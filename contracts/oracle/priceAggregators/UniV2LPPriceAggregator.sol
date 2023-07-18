@@ -7,7 +7,7 @@ import '../../interfaces/uniswap/IUniswapV2Pair.sol';
 import '../../interfaces/drops/IDropsOracle.sol';
 
 /**
- * @title Price Aggreatofr for uniswap V2 LP tokens
+ * @title Price Aggregator for uniswap V2 LP tokens
  */
 contract UniV2LPPriceAggregator {
     /// @notice WETH address
