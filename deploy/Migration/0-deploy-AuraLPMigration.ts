@@ -32,16 +32,22 @@ const deployAuraLPMigration: DeployFunction = async function (hre: HardhatRuntim
 
   const { auraPool, compoudingVault, dropsMarket } = data[2];
 
+  // await deploy('AuraLPMigration', {
+  //   from: deployer,
+  //   proxy: {
+  //     owner: deployer,
+  //     proxyContract: 'OpenZeppelinTransparentProxy',
+  //     execute: {
+  //       methodName: 'initialize',
+  //       args: [auraPool, compoudingVault, dropsMarket],
+  //     },
+  //   },
+  //   log: true,
+  // });
+
   await deploy('AuraLPMigration', {
     from: deployer,
-    proxy: {
-      owner: deployer,
-      proxyContract: 'OpenZeppelinTransparentProxy',
-      execute: {
-        methodName: 'initialize',
-        args: [auraPool, compoudingVault, dropsMarket],
-      },
-    },
+    args: [],
     log: true,
   });
 };

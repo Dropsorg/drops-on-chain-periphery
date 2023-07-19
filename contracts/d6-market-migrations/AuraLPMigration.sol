@@ -89,10 +89,6 @@ contract AuraLPMigration is
         IERC20Upgradeable(address(compoundingVault)).safeApprove(address(dropsAuraMarket), shares);
         uint256 err = dropsAuraMarket.mintTo(shares, user);
         require(err == 0, '!mint');
-        require(
-            IERC20Upgradeable(address(dropsAuraMarket)).balanceOf(address(this)) > 0,
-            '!no mint'
-        );
 
         // enable as collateral
         IDropsAuraComptroller comptroller = dropsAuraMarket.comptroller();
